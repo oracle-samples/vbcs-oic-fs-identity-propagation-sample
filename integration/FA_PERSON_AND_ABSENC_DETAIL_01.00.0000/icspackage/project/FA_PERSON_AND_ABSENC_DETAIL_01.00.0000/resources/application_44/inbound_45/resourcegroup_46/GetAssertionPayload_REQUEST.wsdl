@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types" xmlns:ns1="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST" xmlns:ns2="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetAssertionPayload" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types" xmlns:ns4="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST">
+  <casdk:RuntimeIntegrationModel xmlns:casdk="http://xml.oracle.com/wsdl/extensions">
+    <casdk:sourceWSDLMetadata>
+      <casdk:targetWSDLNS>http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST</casdk:targetWSDLNS>
+      <casdk:soapVersion>SOAP11</casdk:soapVersion>
+    </casdk:sourceWSDLMetadata>
+  </casdk:RuntimeIntegrationModel>
+  <wsdl:types>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetAssertionPayload" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetAssertionPayload" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xsd:element name="APIInvocationError">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>API Invocation Error</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="type" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Type</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="title" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Title</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="detail" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Detail</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="errorCode" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Error Code</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="errorDetails" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Error Details</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="type" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Type</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="instance" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Instance</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="title" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Title</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="errorPath" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Error Path</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="errorCode" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Error Code</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTRES" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTRES">
+      <xs:element name="ConnectivityProperties">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Connectivity Properties</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestAPI" maxOccurs="1" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Runtime properties for REST based endpoints. These properties propagate additional information from http response.</xs:documentation>
+                <xs:appinfo>
+                  <ns1:title>Rest API</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:positiveInteger" name="http.response.status" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Http respnose status returned by the target endpoint.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Response Status</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:string" name="http.response.reason" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Reason corresponding to the Http respnose status returned by the target endpoint.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Response Reason</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <!--Version is not available in jersey 1.8                                <xs:element type="xs:string" name="http.response.version" maxOccurs="1" minOccurs="0">                                    <xs:annotation>                                        <xs:documentation>The HTTP version of the response, if present.                                        </xs:documentation>                                    </xs:annotation>                                </xs:element>-->
+                  <xs:element type="xs:string" name="http.target.endpoint.uri" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The target endpoint that was invoked to receive this response.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Target Endpoint Uri</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTREQ" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTREQ">
+      <xs:element name="ConnectivityProperties">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Connectivity Properties</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestAPI" maxOccurs="1" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Runtime properties for REST based endpoints. These properties can be used to dynamically configure the runtime behavior of REST based requests</xs:documentation>
+                <xs:appinfo>
+                  <ns1:title>Rest API</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice>
+                    <xs:element type="xs:anyURI" name="AbsoluteEndpointURI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Absolute URI. When mapped to a valid URI,the requests will be routed to this URI. If it is mapped, BaseUri,RelativeUri and Uri mappings, if any, will be ignored. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>Absolute Endpoint URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:anyURI" name="BaseURI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Base URI where this request will be routed to. Equivalent of base connection URL provided during connection configuration. Must be mapped if RelativeUri is alo mapped. When RelativeUri is not mapped, corresponding value from endpoint configuration is used. Mapping have no impact if AbsoluteEndpointUri is also mapped and is not empty. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri.</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>Base URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="RelativeURI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Relative URI of the resource. Must start with a "/". BaseUri must also be mapped and be non empty if this is mapped. The final endpoint URI is created by appending RelativeUri to BaseUri. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri.</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>Relative URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="URI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Use one of the following to substitute URI components, from runtime values, in the target endpoint URI. These mappings will not have any impact if either of BaseUri or AbsoluteEndpointUri is also mapped and is not empty. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Scheme" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Protocol. Only HTTP or HTTPS is allowed</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Scheme</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="HTTP"/>
+                                <xs:enumeration value="HTTPS"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Host" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Host. Host this request will be routed to.</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Host</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:integer" name="Port" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Port. Port of the URI this request will be routed to.</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Port</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Query" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Query String. The part of the URL that follows the "?". If the mapped value is non null, query string in the original URL will be substituted with the value determined at runtime.</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Query</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Path" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Path. The part of the URL between the hostname and "?".</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Path</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Plugin">
+              <xs:annotation>
+                <xs:appinfo>
+                  <ns1:title>Plugin</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:boolean" name="PostQueryString" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. When true, the fields in the query string (Query Parameters) will be sent as form data in request body.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Post Query String</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="UseFormURLEncoding" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default True. When false, ICS will follow RFC 3986 compliant encoding of the query string parameters. For REST APIs that are compliant                            with RFC 3986, space is expected to be encoded as %20 in the query string.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Use Form URL Encoding</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="EnforceEmptyJSONObjectPayload" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. When true, will set body payload to an empty JSON object.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Enforce Empty JSON Object Payload</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="EnforceAbsoluteEndpointURI" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. Used in conjunction with AbsoluteEndpointURI. When true, the AbsoluteEndpointURI specified in the connectivity properties is sent to the target as it is with no attempts to URL encode.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Enforce Absolute Endpoint URI</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="SkipControlCharacters" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. Unicode characters in the range of \u0000 to \u001F are control characters. Non-printable control characters within this range are not handled by OIC. When true, OIC will ignore these characters from the incoming payload.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Skip Control Characters</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xsd:element name="request-wrapper" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>Request Wrapper</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="principal" type="xsd:string" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Principal</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="scopes" maxOccurs="unbounded" type="xsd:string" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Scopes</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="response-wrapper" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>Response Wrapper</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="assertion" type="xsd:string" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Assertion</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns6="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTREQ" xmlns:tns0="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types" xmlns:ns1="http://xml.oracle.com/adapters/extension" xmlns:ns7="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types" xmlns:ns8="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTRES" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTRES"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetAssertionPayload_REQUEST/RESTOUTREQ"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types"/>
+      <xs:element name="execute" type="tns0:executeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Execute</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="executeType">
+        <xs:sequence>
+          <xs:element ref="ns5:request-wrapper"/>
+          <xs:element ref="ns6:ConnectivityProperties"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="executeResponse" type="tns0:executeResponseType">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Execute Response</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="executeResponseType">
+        <xs:sequence>
+          <xs:element ref="ns7:response-wrapper"/>
+          <xs:element ref="ns8:ConnectivityProperties"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeRequestMessage">
+    <wsdl:part name="parameters" element="ns0:execute"/>
+  </wsdl:message>
+  <wsdl:message name="executeResponseMessage">
+    <wsdl:part name="parameters" element="ns0:executeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="APIInvocationError">
+    <wsdl:part name="parameters" element="ns2:APIInvocationError"/>
+  </wsdl:message>
+  <wsdl:portType name="GetAssertionPayload_REQUESTPortType">
+    <wsdl:operation name="execute">
+      <cloud:CloudOperation xmlns:cloud="http://xml.oracle.com/types" targetOperation="execute"/>
+      <wsdl:input message="ns1:executeRequestMessage"/>
+      <wsdl:output message="ns1:executeResponseMessage"/>
+      <wsdl:fault name="APIInvocationError" message="ns1:APIInvocationError"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetAssertionPayload_REQUESTPortType-binding" type="ns1:GetAssertionPayload_REQUESTPortType">
+    <binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute">
+      <operation soapAction="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/execute"/>
+      <wsdl:input>
+        <body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <plnk:partnerLinkType name="getassertionpayload_44_inbound_45">
+    <plnk:role name="GetAssertionPayload_REQUESTPortType">
+      <plnk:portType name="ns1:GetAssertionPayload_REQUESTPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+</wsdl:definitions>

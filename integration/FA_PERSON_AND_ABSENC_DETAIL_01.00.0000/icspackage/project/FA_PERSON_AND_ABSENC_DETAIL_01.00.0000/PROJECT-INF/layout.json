@@ -1,0 +1,221 @@
+{
+  "children": [
+    {
+      "id": "r0",
+      "left": 0,
+      "top": 0,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "l0",
+      "left": 0,
+      "top": 166,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "t0",
+      "left": -3,
+      "top": 332,
+      "openWidth": 350,
+      "openHeight": 1144,
+      "open": "open",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "t1",
+      "left": 285,
+      "top": 1586,
+      "openWidth": 350,
+      "openHeight": 1144,
+      "open": "open",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "y0",
+      "left": 576,
+      "top": 2840,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "t0_begin",
+      "left": 0,
+      "top": 0,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m1",
+      "left": -27,
+      "top": 112,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "i0",
+      "left": -27,
+      "top": 278,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m2",
+      "left": -27,
+      "top": 444,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "i1",
+      "left": -27,
+      "top": 610,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "l1",
+      "left": -27,
+      "top": 776,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "t0.end",
+      "left": 0,
+      "top": 942,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "t1_begin",
+      "left": 0,
+      "top": 0,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m3",
+      "left": -27,
+      "top": 112,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "i2",
+      "left": -27,
+      "top": 278,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m4",
+      "left": -27,
+      "top": 444,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "i3",
+      "left": -27,
+      "top": 610,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m5",
+      "left": -27,
+      "top": 776,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "t1.end",
+      "left": 0,
+      "top": 942,
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "ta1_begin",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "l3",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m6",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "y2",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "ta1.end",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "ta0_begin",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "l2",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "s0",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "sc0",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "m0",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "y1",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "sc1",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "eh0",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "s0_router.end",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    },
+    {
+      "id": "ta0.end",
+      "chosenLayout": "VerticalLayout",
+      "inGlobalTry": false
+    }
+  ],
+  "chosenLayout": "VerticalLayout",
+  "inGlobalTry": false,
+  "chosenFormat": "canvasView"
+}

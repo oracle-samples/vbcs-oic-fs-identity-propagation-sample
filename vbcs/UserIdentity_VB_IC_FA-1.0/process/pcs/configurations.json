@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "2.0",
+  "development": {
+    "allowProcessDevelopmentTarget": true,
+    "processTarget": "test"
+  }
+}

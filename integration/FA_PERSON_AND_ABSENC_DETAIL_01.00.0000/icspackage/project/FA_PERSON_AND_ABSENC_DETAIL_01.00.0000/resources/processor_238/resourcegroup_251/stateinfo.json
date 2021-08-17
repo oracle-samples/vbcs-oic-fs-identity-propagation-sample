@@ -1,0 +1,16 @@
+{
+  "referencedFunctionsWithTrackFlag": [],
+  "errorMsgs": [],
+  "warningMsgs": [],
+  "variablesReferenced": [
+    {
+      "variableName": "FusionAppsRESTScopeFaultObject",
+      "wsdlURI": "file:/u01/data/domains/oic/servers/oic_server2/storage/ics/tmp/WC/itg_2820975502940740930/resources/processor_200/resourcegroup_201/ICSFault.xsd",
+      "rootElement": "{http://www.oracle.com/2014/03/ics/fault}fault"
+    }
+  ],
+  "referencedLookupData": [],
+  "warningCount": 0,
+  "errorCount": 0,
+  "version": 2
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates. 
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<ns0:ApplicationInstance xmlns:ns0="http://xmlns.oracle.com/adapters/cloud">
+  <id>aecaee90-4317-4454-a080-b3ed1c035f19</id>
+  <instanceCode>FA_IDCS</instanceCode>
+  <groupId>e46a2a5c-d95c-4da3-93d8-06934145ffb4</groupId>
+  <displayName>FA IDCS</displayName>
+  <applicationTypeRef>rest</applicationTypeRef>
+  <description>This connection will be used to call the Fusion Applications IDCS instance for the JWT Assertion Grant Type.  The JWT returned will be used as the Bearer token for the FA REST API calls.</description>
+  <connectionProperties>
+    <connectionProperty>
+      <name>integration_role</name>
+      <value>TARGET</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>connectionType</name>
+      <value>restUrl</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>tlsVersion</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>connectionUrl</name>
+      <value>https://some.endpoint.example.com</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>enableTwoWaySSL</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>sslCertificateAlias</name>
+    </connectionProperty>
+  </connectionProperties>
+  <securityPolicy>NONE</securityPolicy>
+  <revision>01.00.0000</revision>
+  <status>CONFIGURED</status>
+  <hidden>false</hidden>
+  <percentageComplete>100</percentageComplete>
+  <attachments/>
+  <pluginVersion>19.4.3</pluginVersion>
+  <integrationRole>TARGET</integrationRole>
+  <securedAuditInfo>
+    <auditInfo>
+      <createdBy>some.email@example.com</createdBy>
+      <lastUpdatedBy>some.email@example.com</lastUpdatedBy>
+      <lastUpdatedDate>2021-01-20T22:09:11.801Z</lastUpdatedDate>
+      <createdDate>2021-01-20T22:09:11.801Z</createdDate>
+    </auditInfo>
+    <lockInfo>
+      <lockedBy>some.email@example.com</lockedBy>
+      <lockedDate>2021-01-20T22:11:19.791Z</lockedDate>
+    </lockInfo>
+  </securedAuditInfo>
+</ns0:ApplicationInstance>

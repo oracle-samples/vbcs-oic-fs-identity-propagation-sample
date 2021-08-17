@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<adapter-config xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata" xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types" name="GetFAPersonAndAbsenceDetails_REQUESTPortType" adapter="rest" wsdlLocation="GetFAPersonAndAbsenceDetails_REQUEST.wsdl">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="securityPolicy" value="BASIC_AUTH"/>
+      <property name="cloud.adapter.plugin.init.version" value="20.4.3"/>
+      <property name="cloud.adapter.sdk.version" value="20.4.3"/>
+      <property name="cloud.adapter.plugin.version" value="20.4.3"/>
+      <property name="cloud.adapter.sdk.init.version" value="20.4.3"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-activation portType="GetFAPersonAndAbsenceDetails_REQUESTPortType" operation="execute">
+    <activation-spec className="oracle.tip.adapter.cloud.CloudActivationSpec">
+      <property name="targetOperation" value="execute"/>
+      <property name="operationPath" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/execute"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="responseJsonTopLevelArray" value="false"/>
+      <property name="operationPath" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/execute"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="ResponseMediaType" value="application/json"/>
+      <property name="ResponseSample" value="{   &quot;items&quot; : [ {     &quot;FirstName&quot; : &quot;Casey&quot;,     &quot;LastName&quot; : &quot;Brown&quot;,     &quot;WorkPhoneAreaCode&quot; : &quot;773&quot;,     &quot;WorkPhoneNumber&quot; : &quot;675-5243&quot;,     &quot;HireDate&quot; : &quot;2004-09-30&quot;,     &quot;abscences&quot; : [ {       &quot;approvalStatusCd&quot; : &quot;APPROVED&quot;,       &quot;createdBy&quot; : &quot;CASEY.BROWN&quot;,       &quot;creationDate&quot; : &quot;2020-07-28T16:24:29.011+00:00&quot;,       &quot;endDate&quot; : &quot;2020-07-24&quot;,       &quot;endTime&quot; : &quot;17:30&quot;,       &quot;personAbsenceEntryId&quot; : 300000184483155,       &quot;startDate&quot; : &quot;2020-07-24&quot;,       &quot;startTime&quot; : &quot;08:30&quot;,       &quot;submittedDate&quot; : &quot;2020-07-28&quot;     }, {       &quot;approvalStatusCd&quot; : &quot;APPROVED&quot;,       &quot;createdBy&quot; : &quot;CASEY.BROWN&quot;,       &quot;creationDate&quot; : &quot;2020-07-28T16:25:12.064+00:00&quot;,       &quot;endDate&quot; : &quot;2020-07-27&quot;,       &quot;endTime&quot; : &quot;17:30&quot;,       &quot;personAbsenceEntryId&quot; : 300000184483239,       &quot;startDate&quot; : &quot;2020-07-27&quot;,       &quot;startTime&quot; : &quot;08:30&quot;,       &quot;submittedDate&quot; : &quot;2020-07-28&quot;     } ]   } ] }"/>
+      <property name="HttpVerb" value="POST"/>
+      <property name="ResponseElementName" value="response-wrapper"/>
+      <property name="RequestMediaType" value="application/json"/>
+      <property name="generateConnectivityPropertiesInboundResponse" value="RESTINRES"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST"/>
+      <property name="isRequestRawBytes" value="false"/>
+      <property name="copyFaultFromModel" value="true"/>
+      <property name="requestJsonTopLevelArray" value="false"/>
+      <property name="RequestElementName" value="request-wrapper"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="RequestSample" value="{   &quot;workEmail&quot; : &quot;some.email@example.com&quot; }"/>
+      <property name="isResponseRawBytes" value="false"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types"/>
+      <property name="invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="operations" value="default"/>
+      <property name="generateConnectivityPropertiesInboundRequest" value="RESTINREQ"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types"/>
+      <property name="postQueryParamsAsContent" value="false"/>
+      <property name="targetOperation" value="execute"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types"/>
+      <property name="ResourceURI" value="/getPersonAbsenceDetails"/>
+    </activation-spec>
+  </endpoint-activation>
+</adapter-config>

@@ -1,0 +1,283 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Get Person and Absence Details",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://XXXXXXXXXX.integration.ocp.oraclecloud.com/ic/api/integration",
+      "description": "Get the absence details for the provided work email",
+      "x-vb": {
+        "authentication": {
+          "authenticated": {
+            "type": "oauth2_user_assertion",
+            "clientIdCredentials": "vb_e68a423d-76df-4d89-9a5f-029e97a55307",
+            "scope": "https://XXXXXXXXXX.integration.ocp.oraclecloud.com:443urn:opc:resource:consumer::all"
+          }
+        },
+        "forceProxy": "cors"
+      }
+    }
+  ],
+  "paths": {
+    "/v1/flows/rest/FA_PERSON_AND_ABSENC_DETAIL/1.0/getPersonAbsenceDetails": {
+      "post": {
+        "operationId": "postGetPersonAbsenceDetails",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostV1FlowsRestFA_PERSON_AND_ABSENC_DETAIL1_0GetPersonAbsenceDetailsRequest"
+              },
+              "examples": {
+                "vb": {
+                  "externalValue": "./examples/postGetPersonAbsenceDetails/request_application_json_vb.json",
+                  "summary": "Example stored by VB User"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostV1FlowsRestFA_PERSON_AND_ABSENC_DETAIL1_0GetPersonAbsenceDetailsResponse"
+                },
+                "examples": {
+                  "vb": {
+                    "externalValue": "./examples/postGetPersonAbsenceDetails/response_default_application_json_vb.json",
+                    "summary": "Example stored by VB User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-vb": {
+          "actionHint": "getMany"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PostGetPersonAbsenceDetailsRequest": {
+        "type": "object",
+        "properties": {
+          "workEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "PostGetPersonAbsenceDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "FirstName": {
+                  "type": "string"
+                },
+                "LastName": {
+                  "type": "string"
+                },
+                "WorkPhoneAreaCode": {
+                  "type": "string"
+                },
+                "WorkPhoneNumber": {
+                  "type": "string"
+                },
+                "HireDate": {
+                  "type": "string"
+                },
+                "abscences": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approvalStatusCd": {
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "type": "string"
+                      },
+                      "creationDate": {
+                        "type": "string"
+                      },
+                      "endDate": {
+                        "type": "string"
+                      },
+                      "endTime": {
+                        "type": "string"
+                      },
+                      "personAbsenceEntryId": {
+                        "type": "integer"
+                      },
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "startTime": {
+                        "type": "string"
+                      },
+                      "submittedDate": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PostV1FlowsRestGET_PERSON_AND_ABSENC_DETAIL1_0GetPersonAbsenceDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "FirstName": {
+                  "type": "string"
+                },
+                "LastName": {
+                  "type": "string"
+                },
+                "WorkPhoneAreaCode": {
+                  "type": "string"
+                },
+                "WorkPhoneNumber": {
+                  "type": "string"
+                },
+                "HireDate": {
+                  "type": "string"
+                },
+                "abscences": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approvalStatusCd": {
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "type": "string"
+                      },
+                      "creationDate": {
+                        "type": "string"
+                      },
+                      "endDate": {
+                        "type": "string"
+                      },
+                      "endTime": {
+                        "type": "string"
+                      },
+                      "personAbsenceEntryId": {
+                        "type": "integer"
+                      },
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "startTime": {
+                        "type": "string"
+                      },
+                      "submittedDate": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PostV1FlowsRestGET_PERSON_AND_ABSENC_DETAIL1_0GetPersonAbsenceDetailsRequest": {
+        "type": "object",
+        "properties": {
+          "workEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "PostV1FlowsRestFA_PERSON_AND_ABSENC_DETAIL1_0GetPersonAbsenceDetailsRequest": {
+        "type": "object",
+        "properties": {
+          "workEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "PostV1FlowsRestFA_PERSON_AND_ABSENC_DETAIL1_0GetPersonAbsenceDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "FirstName": {
+                  "type": "string"
+                },
+                "LastName": {
+                  "type": "string"
+                },
+                "WorkPhoneAreaCode": {
+                  "type": "string"
+                },
+                "WorkPhoneNumber": {
+                  "type": "string"
+                },
+                "HireDate": {
+                  "type": "string"
+                },
+                "abscences": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approvalStatusCd": {
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "type": "string"
+                      },
+                      "creationDate": {
+                        "type": "string"
+                      },
+                      "endDate": {
+                        "type": "string"
+                      },
+                      "endTime": {
+                        "type": "string"
+                      },
+                      "personAbsenceEntryId": {
+                        "type": "integer"
+                      },
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "startTime": {
+                        "type": "string"
+                      },
+                      "submittedDate": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

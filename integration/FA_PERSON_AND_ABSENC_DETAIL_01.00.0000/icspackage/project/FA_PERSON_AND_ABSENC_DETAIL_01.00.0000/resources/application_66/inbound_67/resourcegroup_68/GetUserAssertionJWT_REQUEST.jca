@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<adapter-config xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata" xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST/types" name="GetUserAssertionJWT_REQUESTPortType" adapter="rest" wsdlLocation="GetUserAssertionJWT_REQUEST.wsdl">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="securityPolicy" value="NONE"/>
+      <property name="cloud.adapter.sdk.version" value="20.4.3"/>
+      <property name="cloud.adapter.plugin.version" value="20.4.3"/>
+      <property name="connectionUrl" value="%%FA_IDCS_connectionUrl"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="GetUserAssertionJWT_REQUESTPortType" operation="execute">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="execute"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="responseJsonTopLevelArray" value="false"/>
+      <property name="interactionSpecClass" value="oracle.tip.adapter.cloud.CloudInteractionSpec"/>
+      <property name="generateConnectivityPropertiesOutboundResponse" value="RESTOUTRES"/>
+      <property name="attachmentXpathInfo" value="//*[namespace-uri()='http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST/types' and local-name()='execute']/*[namespace-uri()='http://xmlns.oracle.com/cloud/ics/binary/v1/types' and local-name()='streamReference']"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="ResponseMediaType" value="application/json"/>
+      <property name="ResponseSample" value="{   &quot;access_token&quot; : &quot;jwt.from.idcs&quot;,   &quot;token_type&quot; : &quot;Bearer&quot;,   &quot;expires_in&quot; : 3598 }"/>
+      <property name="HttpVerb" value="POST"/>
+      <property name="ResponseElementName" value="response-wrapper"/>
+      <property name="RequestMediaType" value="application/x-www-form-urlencoded"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST"/>
+      <property name="generateConnectivityPropertiesOutboundRequest" value="RESTOUTREQ"/>
+      <property name="isRequestRawBytes" value="true"/>
+      <property name="copyFaultFromModel" value="true"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="RequestElementName" value="streamReference"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT/types"/>
+      <property name="isResponseRawBytes" value="false"/>
+      <property name="invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="operations" value="default"/>
+      <property name="forceWsdlTypesBuild" value="true"/>
+      <property name="postQueryParamsAsContent" value="false"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/ics/binary/v1/types"/>
+      <property name="connectionType" value="restapi"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST/types"/>
+      <property name="ResourceURI" value="/oauth2/v1/token"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<oracle-xsl-webmapper:StateInfo xmlns:oracle-xsl-webmapper="http://www.oracle.com/xsl/webmapper/state" version="1.1">
+  <oracle-xsl-webmapper:ErrorsCount>0</oracle-xsl-webmapper:ErrorsCount>
+  <oracle-xsl-webmapper:WarningsCount>0</oracle-xsl-webmapper:WarningsCount>
+  <oracle-xsl-webmapper:IsImported>false</oracle-xsl-webmapper:IsImported>
+  <oracle-xsl-webmapper:HasMappings>true</oracle-xsl-webmapper:HasMappings>
+  <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
+  <oracle-xsl-webmapper:SourcesReferenced>
+    <element xmlns:ns0="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types">ns0:executeResponse</element>
+    <rpcStyle>false</rpcStyle>
+    <type>2</type>
+    <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_8103362294709415446/resources/application_44/inbound_45/resourcegroup_46/GetAssertionPayload_REQUEST.wsdl</uriAbsoluteLocation>
+    <param>GetAssertionPayload</param>
+    <primary>false</primary>
+  </oracle-xsl-webmapper:SourcesReferenced>
+  <oracle-xsl-webmapper:AllSources>
+    <element xmlns:ns1="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types">ns1:execute</element>
+    <rpcStyle>false</rpcStyle>
+    <type>2</type>
+    <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_8103362294709415446/resources/application_18/outbound_19/resourcegroup_20/GetFAPersonAndAbsenceDetails_REQUEST.wsdl</uriAbsoluteLocation>
+    <primary>true</primary>
+  </oracle-xsl-webmapper:AllSources>
+  <oracle-xsl-webmapper:AllSources>
+    <element xmlns:ns2="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types">ns2:executeResponse</element>
+    <rpcStyle>false</rpcStyle>
+    <type>2</type>
+    <uriAbsoluteLocation>file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_8103362294709415446/resources/application_44/inbound_45/resourcegroup_46/GetAssertionPayload_REQUEST.wsdl</uriAbsoluteLocation>
+    <param>GetAssertionPayload</param>
+    <primary>false</primary>
+  </oracle-xsl-webmapper:AllSources>
+  <oracle-xsl-webmapper:LookupTablesReferenced>tenant/resources/dvms/IdentityPropagationEndpoints</oracle-xsl-webmapper:LookupTablesReferenced>
+</oracle-xsl-webmapper:StateInfo>

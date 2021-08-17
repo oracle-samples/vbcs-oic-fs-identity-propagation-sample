@@ -1,0 +1,16 @@
+{
+  "referencedFunctionsWithTrackFlag": [],
+  "variablesReferenced": [
+    {
+      "wsdlURI": "file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_8103362294709415446/resources/application_66/inbound_67/resourcegroup_68/GetUserAssertionJWT_REQUEST.wsdl",
+      "rootElement": "{http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST/types}executeResponse",
+      "variableName": "GetUserAssertionJWT"
+    }
+  ],
+  "referencedLookupData": [],
+  "warningMsgs": [],
+  "errorMsgs": [],
+  "warningCount": 0,
+  "errorCount": 0,
+  "version": 2
+}

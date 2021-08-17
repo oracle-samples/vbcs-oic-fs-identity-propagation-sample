@@ -1,0 +1,16 @@
+{
+  "referencedFunctionsWithTrackFlag": [],
+  "errorMsgs": [],
+  "warningMsgs": [],
+  "variablesReferenced": [
+    {
+      "variableName": "errorCode",
+      "wsdlURI": null,
+      "rootElement": "{http://www.w3.org/2001/XMLSchema}string"
+    }
+  ],
+  "referencedLookupData": [],
+  "warningCount": 0,
+  "errorCount": 0,
+  "version": 2
+}

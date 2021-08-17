@@ -1,0 +1,13 @@
+#
+#    Copyright (c) 2021, Oracle and/or its affiliates. 
+#    Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+#
+schema_version: 20180708
+name: jwt_assertion
+version: 1.0.0
+runtime: java
+build_image: fnproject/fn-java-fdk-build:jdk11-1.0.98
+run_image: fnproject/fn-java-fdk:jre11-1.0.98
+cmd: com.example.fn.jwt_assertion.AssertionCreator::handleRequest
+memory: 256
+timeout: 200

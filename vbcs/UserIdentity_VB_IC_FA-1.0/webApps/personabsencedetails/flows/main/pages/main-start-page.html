@@ -1,0 +1,24 @@
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12">Employee Absences</h1>
+</div>
+<div class="oj-flex">
+  <oj-label for="inputWorkEmail" class="oj-flex-item oj-sm-12 oj-md-2">Work Email</oj-label>
+  <oj-input-text id="inputWorkEmail" class="oj-flex-item oj-sm-12 oj-md-4" required="true" value="{{ $variables.employeeInfoRequest.workEmail }}"></oj-input-text>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button on-oj-action="[[$listeners.ojButtonOjAction]]">Get Details</oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12">Details</h1>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[$page.variables.postGetPersonAbsenceDetailsListSDP]]" columns='[{"headerText":"approvalStatusCd","field":"approvalStatusCd"},{"headerText":"createdBy","field":"createdBy"},{"headerText":"creationDate","field":"creationDate"},{"headerText":"endDate","field":"endDate"},{"headerText":"endTime","field":"endTime"},{"headerText":"personAbsenceEntryId","field":"personAbsenceEntryId"},{"headerText":"startDate","field":"startDate"},{"headerText":"startTime","field":"startTime"},{"headerText":"submittedDate","field":"submittedDate"}]'></oj-table>
+</div>

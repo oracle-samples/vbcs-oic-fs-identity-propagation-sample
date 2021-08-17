@@ -1,0 +1,69 @@
+{
+  "applicationModelVersion": "19.4.3",
+  "id": "personabsencedetails",
+  "description": "A new VB app",
+  "defaultPage": "shell",
+  "chains": {
+    "resourceChangedHandler": {
+      "root": "fireNotification1",
+      "description": "Displays a notification message when application has been updated and needs to be refreshed.",
+      "variables": {
+        "event": {
+          "required": false,
+          "input": "fromCaller",
+          "type": {
+            "error": {
+              "detail": "string"
+            }
+          }
+        }
+      },
+      "actions": {
+        "fireNotification1": {
+          "module": "vb/action/builtin/fireNotificationEventAction",
+          "parameters": {
+            "summary": "[[ $chain.variables.event.error.detail ]]",
+            "target": "leaf"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "getPersonAndAbsenceDetails": {
+      "path": "./services/getPersonAndAbsenceDetails/openapi3.json"
+    }
+  },
+  "translations": {
+    "app": {
+      "path": "./resources/strings/app/nls/app-strings"
+    }
+  },
+  "events": {
+    "navigateToItem": {
+      "payloadType": {
+        "item": "string"
+      }
+    }
+  },
+  "types": {},
+  "variables": {},
+  "eventListeners": {
+    "vbResourceChanged": {
+      "chains": [
+        {
+          "chainId": "resourceChangedHandler",
+          "parameters": {
+            "event": "{{ $event }}"
+          }
+        }
+      ]
+    }
+  },
+  "userConfig": {
+    "type": "vb/DefaultSecurityProvider",
+    "configuration": {},
+    "embedding": "deny"
+  },
+  "security": {}
+}

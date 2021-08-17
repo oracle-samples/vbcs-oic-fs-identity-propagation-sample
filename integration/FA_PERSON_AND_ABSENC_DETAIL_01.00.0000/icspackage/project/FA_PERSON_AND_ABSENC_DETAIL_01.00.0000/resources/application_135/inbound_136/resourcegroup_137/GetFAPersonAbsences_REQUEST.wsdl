@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/types" xmlns:ns1="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST" xmlns:ns2="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAbsences" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST">
+  <wsdl:types>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAbsences" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAbsences" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xsd:element name="APIInvocationError">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>API Invocation Error</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="type" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Type</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="title" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Title</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="detail" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Detail</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="errorCode" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Error Code</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="errorDetails" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Error Details</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="type" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Type</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="instance" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Instance</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="title" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Title</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="errorPath" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Error Path</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="errorCode" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Error Code</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTRES" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTRES">
+      <xs:element name="ConnectivityProperties">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Connectivity Properties</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestAPI" maxOccurs="1" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Runtime properties for REST based endpoints. These properties propagate additional information from http response.</xs:documentation>
+                <xs:appinfo>
+                  <ns1:title>Rest API</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:positiveInteger" name="http.response.status" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Http respnose status returned by the target endpoint.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Response Status</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:string" name="http.response.reason" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Reason corresponding to the Http respnose status returned by the target endpoint.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Response Reason</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <!--Version is not available in jersey 1.8                                <xs:element type="xs:string" name="http.response.version" maxOccurs="1" minOccurs="0">                                    <xs:annotation>                                        <xs:documentation>The HTTP version of the response, if present.                                        </xs:documentation>                                    </xs:annotation>                                </xs:element>-->
+                  <xs:element type="xs:string" name="http.target.endpoint.uri" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The target endpoint that was invoked to receive this response.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Target Endpoint Uri</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTREQ" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTREQ">
+      <xs:element name="ConnectivityProperties">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Connectivity Properties</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestAPI" maxOccurs="1" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Runtime properties for REST based endpoints. These properties can be used to dynamically configure the runtime behavior of REST based requests</xs:documentation>
+                <xs:appinfo>
+                  <ns1:title>Rest API</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice>
+                    <xs:element type="xs:anyURI" name="AbsoluteEndpointURI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Absolute URI. When mapped to a valid URI,the requests will be routed to this URI. If it is mapped, BaseUri,RelativeUri and Uri mappings, if any, will be ignored. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>Absolute Endpoint URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:anyURI" name="BaseURI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Base URI where this request will be routed to. Equivalent of base connection URL provided during connection configuration. Must be mapped if RelativeUri is alo mapped. When RelativeUri is not mapped, corresponding value from endpoint configuration is used. Mapping have no impact if AbsoluteEndpointUri is also mapped and is not empty. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri.</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>Base URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="RelativeURI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Relative URI of the resource. Must start with a "/". BaseUri must also be mapped and be non empty if this is mapped. The final endpoint URI is created by appending RelativeUri to BaseUri. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri.</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>Relative URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="URI" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Use one of the following to substitute URI components, from runtime values, in the target endpoint URI. These mappings will not have any impact if either of BaseUri or AbsoluteEndpointUri is also mapped and is not empty. Uri precedence order is 1) AbsoluteEndpointUri 2) BaseUri + RelativeUri 3) Uri</xs:documentation>
+                        <xs:appinfo>
+                          <ns1:title>URI</ns1:title>
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Scheme" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Protocol. Only HTTP or HTTPS is allowed</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Scheme</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="HTTP"/>
+                                <xs:enumeration value="HTTPS"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Host" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Host. Host this request will be routed to.</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Host</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:integer" name="Port" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Port. Port of the URI this request will be routed to.</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Port</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Query" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Query String. The part of the URL that follows the "?". If the mapped value is non null, query string in the original URL will be substituted with the value determined at runtime.</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Query</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Path" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Path. The part of the URL between the hostname and "?".</xs:documentation>
+                              <xs:appinfo>
+                                <ns1:title>Path</ns1:title>
+                              </xs:appinfo>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Plugin">
+              <xs:annotation>
+                <xs:appinfo>
+                  <ns1:title>Plugin</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:boolean" name="PostQueryString" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. When true, the fields in the query string (Query Parameters) will be sent as form data in request body.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Post Query String</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="UseFormURLEncoding" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default True. When false, ICS will follow RFC 3986 compliant encoding of the query string parameters. For REST APIs that are compliant                            with RFC 3986, space is expected to be encoded as %20 in the query string.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Use Form URL Encoding</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="EnforceEmptyJSONObjectPayload" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. When true, will set body payload to an empty JSON object.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Enforce Empty JSON Object Payload</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="EnforceAbsoluteEndpointURI" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. Used in conjunction with AbsoluteEndpointURI. When true, the AbsoluteEndpointURI specified in the connectivity properties is sent to the target as it is with no attempts to URL encode.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Enforce Absolute Endpoint URI</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:boolean" name="SkipControlCharacters" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Default False. Unicode characters in the range of \u0000 to \u001F are control characters. Non-printable control characters within this range are not handled by OIC. When true, OIC will ignore these characters from the incoming payload.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Skip Control Characters</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/request/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/request/types">
+      <xs:complexType name="HTTPHeaders">
+        <xs:annotation>
+          <xs:appinfo/>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="StandardHTTPHeaders" type="StandardHTTPHeaders" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:appinfo>
+                <ns1:title>Standard HTTP Headers</ns1:title>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StandardHTTPHeaders">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:custom>false</ns1:custom>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Authorization" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:appinfo>
+                <ns1:title>Authorization</ns1:title>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="http://xml.oracle.com/types/REST/GetFAPersonAbsences_REQUEST" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xml.oracle.com/types/REST/GetFAPersonAbsences_REQUEST">
+      <xs:complexType name="QueryParameters">
+        <xs:annotation>
+          <xs:appinfo/>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="q" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:appinfo>
+                <ns1:title>Q</ns1:title>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="onlyData" type="xs:boolean" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:appinfo>
+                <ns1:title>Only Data</ns1:title>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences/types" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xsd:element name="response-wrapper" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>Response Wrapper</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="items" maxOccurs="unbounded" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Items</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="absenceCaseId" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Case Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceEntryBasicFlag" type="xsd:boolean" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Entry Basic Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absencePatternCd" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Pattern Cd</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceStatusCd" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Status Cd</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceTypeId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Type Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceTypeReasonId" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Type Reason Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="agreementId" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Agreement Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="approvalStatusCd" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Approval Status Cd</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="authStatusUpdateDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Auth Status Update Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="bandDtlId" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Band Dtl Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="blockedLeaveCandidate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Blocked Leave Candidate</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="certificationAuthFlag" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Certification Auth Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="childEventTypeCd" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Child Event Type Cd</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="comments" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Comments</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="conditionStartDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Condition Start Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="confirmedDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Confirmed Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="consumedByAgreement" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Consumed By Agreement</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="createdBy" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Created By</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="creationDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Creation Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="diseaseCode" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Disease Code</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="duration" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Duration</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="employeeShiftFlag" type="xsd:boolean" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Employee Shift Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="endDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>End Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="endDateDuration" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>End Date Duration</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="endDateTime" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>End Date Time</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="endTime" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>End Time</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="establishmentDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Establishment Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="frequency" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Frequency</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="initialReportById" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Initial Report By Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="initialTimelyNotifyFlag" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Initial Timely Notify Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="lastUpdateDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Last Update Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="lastUpdateLogin" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Last Update Login</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="lastUpdatedBy" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Last Updated By</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="lateNotifyFlag" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Late Notify Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="legalEntityId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Legal Entity Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="legislationCode" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Legislation Code</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="legislativeDataGroupId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Legislative Data Group Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="notificationDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Notification Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="objectVersionNumber" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Object Version Number</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="openEndedFlag" type="xsd:boolean" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Open Ended Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="overridden" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Overridden</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="personAbsenceEntryId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Person Absence Entry Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="periodOfIncapToWorkFlag" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Period Of Incap To Work Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="periodOfServiceId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Period Of Service Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="personId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Person Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="plannedEndDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Planned End Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="processingStatus" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Processing Status</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="projectId" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Project Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="singleDayFlag" type="xsd:boolean" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Single Day Flag</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="source" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Source</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="splCondition" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Spl Condition</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="startDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Start Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="startDateDuration" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Start Date Duration</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="startDateTime" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Start Date Time</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="startTime" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Start Time</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="submittedDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Submitted Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="timelinessOverrideDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Timeliness Override Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="unitOfMeasure" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Unit Of Measure</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="userMode" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>User Mode</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="personNumber" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Person Number</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceType" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Type</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="employer" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Employer</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceReason" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Reason</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="absenceDispStatus" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Absence Disp Status</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dataSecurityPersonId" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Data Security Person Id</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="effectiveEndDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Effective End Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="effectiveStartDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Effective Start Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ObjectVersionNumber" type="xsd:double" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Object Version Number</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="agreementName" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Agreement Name</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="paymentDetail" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Payment Detail</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="count" type="xsd:double" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Count</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="hasMore" type="xsd:boolean" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Has More</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="limit" type="xsd:double" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Limit</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="offset" type="xsd:double" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Offset</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="links" maxOccurs="unbounded" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Links</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="rel" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Rel</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="href" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Href</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Name</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="kind" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Kind</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/request/types" xmlns:ns1="http://xml.oracle.com/adapters/extension" xmlns:ns4="http://xml.oracle.com/types/REST/GetFAPersonAbsences_REQUEST" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns5="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTREQ" xmlns:tns0="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/types" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns6="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences/types" xmlns:ns7="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTRES" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/types" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTRES"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences/types"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAbsences_REQUEST/RESTOUTREQ"/>
+      <xs:import namespace="http://xml.oracle.com/types/REST/GetFAPersonAbsences_REQUEST"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/request/types"/>
+      <xs:element name="execute" type="tns0:executeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Execute</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="executeType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" type="ns3:HTTPHeaders" name="HTTPHeaders">
+            <xs:annotation>
+              <xs:appinfo>
+                <ns1:title>HTTP Headers</ns1:title>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" type="ns4:QueryParameters" name="QueryParameters">
+            <xs:annotation>
+              <xs:appinfo>
+                <ns1:title>Query Parameters</ns1:title>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ns5:ConnectivityProperties"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="executeResponse" type="tns0:executeResponseType">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Execute Response</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="executeResponseType">
+        <xs:sequence>
+          <xs:element ref="ns6:response-wrapper"/>
+          <xs:element ref="ns7:ConnectivityProperties"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeRequestMessage">
+    <wsdl:part name="parameters" element="ns0:execute"/>
+  </wsdl:message>
+  <wsdl:message name="executeResponseMessage">
+    <wsdl:part name="parameters" element="ns0:executeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="APIInvocationError">
+    <wsdl:part name="parameters" element="ns2:APIInvocationError"/>
+  </wsdl:message>
+  <wsdl:portType name="GetFAPersonAbsences_REQUESTPortType">
+    <wsdl:operation name="execute">
+      <cloud:CloudOperation xmlns:cloud="http://xml.oracle.com/types" targetOperation="execute"/>
+      <wsdl:input message="ns1:executeRequestMessage"/>
+      <wsdl:output message="ns1:executeResponseMessage"/>
+      <wsdl:fault name="APIInvocationError" message="ns1:APIInvocationError"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetFAPersonAbsences_REQUESTPortType-binding" type="ns1:GetFAPersonAbsences_REQUESTPortType">
+    <binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute">
+      <operation soapAction="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/execute"/>
+      <wsdl:input>
+        <body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <plnk:partnerLinkType name="getfapersonabsences_135_inbound_136">
+    <plnk:role name="GetFAPersonAbsences_REQUESTPortType">
+      <plnk:portType name="ns1:GetFAPersonAbsences_REQUESTPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+</wsdl:definitions>

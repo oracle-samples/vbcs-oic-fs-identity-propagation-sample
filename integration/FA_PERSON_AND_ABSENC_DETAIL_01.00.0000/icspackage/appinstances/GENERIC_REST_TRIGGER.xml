@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates. 
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<ns0:ApplicationInstance xmlns:ns0="http://xmlns.oracle.com/adapters/cloud">
+  <id>9abfe4bb-a25f-44e5-8b76-a980d541bc9d</id>
+  <instanceCode>GENERIC_REST_TRIGGER</instanceCode>
+  <groupId>1b9ee244-9914-462d-be85-cd23d31fbf2b</groupId>
+  <displayName>Generic REST Trigger</displayName>
+  <applicationTypeRef>rest</applicationTypeRef>
+  <connectionProperties>
+    <connectionProperty>
+      <name>integration_role</name>
+      <value>SOURCE</value>
+    </connectionProperty>
+  </connectionProperties>
+  <securityPolicy>BASIC_AUTH</securityPolicy>
+  <revision>01.00.0000</revision>
+  <status>CONFIGURED</status>
+  <hidden>false</hidden>
+  <percentageComplete>100</percentageComplete>
+  <attachments/>
+  <integrationRole>SOURCE</integrationRole>
+  <securedAuditInfo>
+    <auditInfo>
+      <createdBy>some.email@example.com</createdBy>
+      <lastUpdatedBy>some.email@example.com</lastUpdatedBy>
+      <lastUpdatedDate>2020-11-19T06:55:24.569Z</lastUpdatedDate>
+      <createdDate>2020-11-19T06:55:24.569Z</createdDate>
+    </auditInfo>
+    <lockInfo>
+      <lockedBy>some.email@example.com</lockedBy>
+      <lockedDate>2020-12-03T17:40:32.197Z</lockedDate>
+    </lockInfo>
+  </securedAuditInfo>
+</ns0:ApplicationInstance>

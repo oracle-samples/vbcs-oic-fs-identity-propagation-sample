@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types" xmlns:ns1="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST" xmlns:ns2="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAndAbsenceDetails" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST">
+  <wsdl:types>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINRES" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINRES">
+      <xs:element name="ConnectivityProperties">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Connectivity Properties</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestAPI" maxOccurs="1" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Runtime properties for REST based endpoints. These properties can be used to dynamically configure the runtime behavior of REST trigger response.</xs:documentation>
+                <xs:appinfo>
+                  <ns1:title>Rest API</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:positiveInteger" name="http.response.status" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The HTTP response status code. The value assigned to this property will be sent back as the HTTP response status code.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Response Status</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINREQ" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINREQ">
+      <xs:element name="ConnectivityProperties">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Connectivity Properties</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestAPI" maxOccurs="1" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Runtime properties for REST based endpoints. These properties will propagate additional infromation about incoming requests to the integration flow. Information like the method called, the endpoint URI etc.</xs:documentation>
+                <xs:appinfo>
+                  <ns1:title>Rest API</ns1:title>
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="http.request.method" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The HTTP request method. This field will contain the method name this rest trigger endpoint was invoked with.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Request Method</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:string" name="http.request.uri" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The HTTP request uri. Absolute endpoint URI of the OIC REST trigger that was invoked by the client.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Request Uri</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:string" name="http.request.relative.uri" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The HTTP request relative uri. Relative URI of the OIC REST trigger REST endpoint.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Request Relative Uri</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="xs:string" name="http.request.path" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The HTTP request path. Path of the OIC REST trigger REST endpoint.</xs:documentation>
+                      <xs:appinfo>
+                        <ns1:title>Http Request Path</ns1:title>
+                      </xs:appinfo>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAndAbsenceDetails" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAndAbsenceDetails" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xsd:element name="APIInvocationError">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>API Invocation Error</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="type" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Type</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="title" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Title</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="detail" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Detail</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="errorCode" type="xsd:string">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Error Code</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="errorDetails" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Error Details</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="type" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Type</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="instance" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Instance</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="title" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Title</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="errorPath" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Error Path</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="errorCode" type="xsd:string">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Error Code</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:ns1="http://xml.oracle.com/adapters/extension" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xsd:element name="request-wrapper" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>Request Wrapper</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="workEmail" type="xsd:string" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Work Email</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="response-wrapper" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <ns1:title>Response Wrapper</ns1:title>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="items" maxOccurs="unbounded" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo>
+                  <ns1:title>Items</ns1:title>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="FirstName" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>First Name</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="LastName" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Last Name</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="WorkPhoneAreaCode" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Work Phone Area Code</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="WorkPhoneNumber" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Work Phone Number</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HireDate" type="xsd:string" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Hire Date</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="abscences" maxOccurs="unbounded" nillable="true">
+                    <xsd:annotation>
+                      <xsd:appinfo>
+                        <ns1:title>Abscences</ns1:title>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="approvalStatusCd" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Approval Status Cd</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="createdBy" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Created By</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="creationDate" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Creation Date</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="endDate" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>End Date</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="endTime" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>End Time</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="personAbsenceEntryId" type="xsd:double" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Person Absence Entry Id</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="startDate" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Start Date</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="startTime" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Start Time</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="submittedDate" type="xsd:string" nillable="true">
+                          <xsd:annotation>
+                            <xsd:appinfo>
+                              <ns1:title>Submitted Date</ns1:title>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xs:schema>
+    <xs:schema xmlns="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types" xmlns:connprop="http://xmlns.oracle.com/cloud/adapter/connectivityproperties" xmlns:ns4="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINREQ" xmlns:tns0="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types" xmlns:ns1="http://xml.oracle.com/adapters/extension" xmlns:ns5="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types" xmlns:ns6="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINRES" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types" nxsd:version="JSON" nxsd:encoding="UTF-8">
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINRES"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/connectivityproperties/REST/GetFAPersonAndAbsenceDetails_REQUEST/RESTINREQ"/>
+      <xs:import namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails/types"/>
+      <xs:element name="execute" type="tns0:executeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Execute</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="executeType">
+        <xs:sequence>
+          <xs:element ref="ns3:request-wrapper"/>
+          <xs:element ref="ns4:ConnectivityProperties"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="executeResponse" type="tns0:executeResponseType">
+        <xs:annotation>
+          <xs:appinfo>
+            <ns1:title>Execute Response</ns1:title>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="executeResponseType">
+        <xs:sequence>
+          <xs:element ref="ns5:response-wrapper"/>
+          <xs:element ref="ns6:ConnectivityProperties"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.oracle.com/ics/tracking/ics_tracking_context.xsd" targetNamespace="http://xmlns.oracle.com/ics/tracking/ics_tracking_context.xsd" elementFormDefault="qualified">
+      <xs:element name="ics_tracking_context">
+        <xs:annotation>
+          <xs:documentation>ICS Tracking Context Schema</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tracking_property" type="TrackingPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="TrackingPropertyType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.oracle.com/procmon" targetNamespace="http://xmlns.oracle.com/procmon" elementFormDefault="qualified">
+      <xs:element name="ics_insight_context">
+        <xs:annotation>
+          <xs:documentation>Insight Context Schema</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="insight_property" type="InsightPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="InsightPropertyType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeRequestMessage">
+    <wsdl:part name="parameters" element="ns0:execute"/>
+  </wsdl:message>
+  <wsdl:message name="executeResponseMessage">
+    <wsdl:part name="parameters" element="ns0:executeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="APIInvocationError">
+    <wsdl:part name="parameters" element="ns2:APIInvocationError"/>
+  </wsdl:message>
+  <wsdl:portType name="GetFAPersonAndAbsenceDetails_REQUESTPortType">
+    <wsdl:operation name="execute">
+      <cloud:CloudOperation xmlns:cloud="http://xml.oracle.com/types" targetOperation="execute"/>
+      <wsdl:input message="ns1:executeRequestMessage"/>
+      <wsdl:output message="ns1:executeResponseMessage"/>
+      <wsdl:fault name="APIInvocationError" message="ns1:APIInvocationError"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetFAPersonAndAbsenceDetails_REQUESTPortType-binding" type="ns1:GetFAPersonAndAbsenceDetails_REQUESTPortType">
+    <binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute">
+      <operation soapAction="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/execute"/>
+      <wsdl:input>
+        <body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <plnk:partnerLinkType name="getfapersonandabsencedetails_18_outbound_19">
+    <plnk:role name="GetFAPersonAndAbsenceDetails_REQUESTPortType">
+      <plnk:portType name="ns1:GetFAPersonAndAbsenceDetails_REQUESTPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+</wsdl:definitions>

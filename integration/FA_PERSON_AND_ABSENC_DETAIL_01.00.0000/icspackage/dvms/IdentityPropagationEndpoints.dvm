@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<dvm xmlns="http://xmlns.oracle.com/dvm" name="IdentityPropagationEndpoints">
+  <description>Externalize the various endpoints for the REST connections</description>
+  <columns>
+    <column name="RESTConnection"/>
+    <column name="BaseUri"/>
+  </columns>
+  <rows>
+    <row>
+      <cell>OCI_Function</cell>
+      <cell>https://oci.function.endpoint.goes.here</cell>
+    </row>
+    <row>
+      <cell>FA_IDCS</cell>
+      <cell>https://fa.idcs.endpoint.goes.here</cell>
+    </row>
+    <row>
+      <cell>FA_REST</cell>
+      <cell>https://fa.rest.api.endpoint.goes.here</cell>
+    </row>
+  </rows>
+</dvm>

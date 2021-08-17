@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "FirstName": "James",
+      "LastName": "Bird",
+      "WorkPhoneAreaCode": "161",
+      "WorkPhoneNumber": "673425",
+      "HireDate": "2000-10-03",
+      "abscences": [
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "CURTIS.FEITTY",
+          "creationDate": "2018-08-14T17:38:27.037+00:00",
+          "endDate": "2017-09-18",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000172567786,
+          "startDate": "2017-09-18",
+          "startTime": "08:30",
+          "submittedDate": "2018-08-14"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "CURTIS.FEITTY",
+          "creationDate": "2018-08-14T17:42:30.673+00:00",
+          "endDate": "2017-11-29",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000172567886,
+          "startDate": "2017-11-28",
+          "startTime": "08:30",
+          "submittedDate": "2018-08-14"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "CURTIS.FEITTY",
+          "creationDate": "2018-08-14T17:46:47.055+00:00",
+          "endDate": "2018-01-26",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000172571087,
+          "startDate": "2018-01-24",
+          "startTime": "08:30",
+          "submittedDate": "2018-08-14"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "CURTIS.FEITTY",
+          "creationDate": "2018-08-14T17:45:58.321+00:00",
+          "endDate": "2018-03-07",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000172571030,
+          "startDate": "2018-03-07",
+          "startTime": "08:30",
+          "submittedDate": "2018-08-14"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "CURTIS.FEITTY",
+          "creationDate": "2018-08-14T17:52:21.017+00:00",
+          "endDate": "2018-06-08",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000172571368,
+          "startDate": "2018-06-06",
+          "startTime": "08:30",
+          "submittedDate": "2018-08-14"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "CURTIS.FEITTY",
+          "creationDate": "2018-08-14T17:53:44.403+00:00",
+          "endDate": "2018-07-20",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000172571582,
+          "startDate": "2018-07-20",
+          "startTime": "08:30",
+          "submittedDate": "2018-08-14"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "JAMES.BIRD",
+          "creationDate": "2020-09-16T15:57:34.003+00:00",
+          "endDate": "2020-09-23",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000184569691,
+          "startDate": "2020-09-23",
+          "startTime": "08:30",
+          "submittedDate": "2020-09-16"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "JAMES.BIRD",
+          "creationDate": "2020-09-16T15:57:05.011+00:00",
+          "endDate": "2020-09-28",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000184569672,
+          "startDate": "2020-09-28",
+          "startTime": "08:30",
+          "submittedDate": "2020-09-16"
+        },
+        {
+          "approvalStatusCd": "APPROVED",
+          "createdBy": "JAMES.BIRD",
+          "creationDate": "2020-09-16T15:58:09.003+00:00",
+          "endDate": "2020-10-02",
+          "endTime": "17:30",
+          "personAbsenceEntryId": 300000184569712,
+          "startDate": "2020-10-02",
+          "startTime": "08:30",
+          "submittedDate": "2020-09-16"
+        }
+      ]
+    }
+  ]
+}

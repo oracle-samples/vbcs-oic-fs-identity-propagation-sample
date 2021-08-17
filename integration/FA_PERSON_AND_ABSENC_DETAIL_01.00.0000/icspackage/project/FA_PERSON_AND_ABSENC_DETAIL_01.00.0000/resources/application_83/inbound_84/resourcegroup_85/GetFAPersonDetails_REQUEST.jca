@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<adapter-config xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata" xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST/types" name="GetFAPersonDetails_REQUESTPortType" adapter="rest" wsdlLocation="GetFAPersonDetails_REQUEST.wsdl">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="securityPolicy" value="NONE"/>
+      <property name="cloud.adapter.plugin.init.version" value="20.4.3"/>
+      <property name="cloud.adapter.sdk.version" value="20.4.3"/>
+      <property name="cloud.adapter.plugin.version" value="20.4.3"/>
+      <property name="cloud.adapter.sdk.init.version" value="20.4.3"/>
+      <property name="connectionUrl" value="%%FA_REST_connectionUrl"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="GetFAPersonDetails_REQUESTPortType" operation="execute">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="execute"/>
+      <property name="operationPath" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST/execute"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="responseJsonTopLevelArray" value="false"/>
+      <property name="generateConnectivityPropertiesOutboundResponse" value="RESTOUTRES"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="ResponseMediaType" value="application/json"/>
+      <property name="ResponseSample" value="{   &quot;items&quot; : [ {     &quot;Salutation&quot; : &quot;MR.&quot;,     &quot;FirstName&quot; : &quot;Casey&quot;,     &quot;MiddleName&quot; : null,     &quot;LastName&quot; : &quot;Brown&quot;,     &quot;PreviousLastName&quot; : null,     &quot;NameSuffix&quot; : null,     &quot;DisplayName&quot; : &quot;Casey Brown&quot;,     &quot;PreferredName&quot; : null,     &quot;Honors&quot; : null,     &quot;CorrespondenceLanguage&quot; : null,     &quot;PersonNumber&quot; : &quot;4&quot;,     &quot;WorkPhoneCountryCode&quot; : &quot;1&quot;,     &quot;WorkPhoneAreaCode&quot; : &quot;773&quot;,     &quot;WorkPhoneNumber&quot; : &quot;675-5243&quot;,     &quot;WorkPhoneExtension&quot; : null,     &quot;WorkPhoneLegislationCode&quot; : &quot;US&quot;,     &quot;WorkFaxCountryCode&quot; : null,     &quot;WorkFaxAreaCode&quot; : null,     &quot;WorkFaxNumber&quot; : null,     &quot;WorkFaxExtension&quot; : null,     &quot;WorkFaxLegislationCode&quot; : null,     &quot;WorkMobilePhoneCountryCode&quot; : null,     &quot;WorkMobilePhoneAreaCode&quot; : null,     &quot;WorkMobilePhoneNumber&quot; : null,     &quot;WorkMobilePhoneExtension&quot; : null,     &quot;WorkMobilePhoneLegislationCode&quot; : null,     &quot;HomePhoneCountryCode&quot; : null,     &quot;HomePhoneAreaCode&quot; : null,     &quot;HomePhoneNumber&quot; : null,     &quot;HomePhoneExtension&quot; : null,     &quot;HomePhoneLegislationCode&quot; : null,     &quot;HomeFaxCountryCode&quot; : null,     &quot;HomeFaxAreaCode&quot; : null,     &quot;HomeFaxNumber&quot; : null,     &quot;HomeFaxExtension&quot; : null,     &quot;WorkEmail&quot; : &quot;some.email@example.com&quot;,     &quot;HomeFaxLegislationCode&quot; : null,     &quot;AddressLine1&quot; : &quot;10922 Petterson Ave&quot;,     &quot;AddressLine2&quot; : null,     &quot;AddressLine3&quot; : null,     &quot;City&quot; : &quot;Chicago&quot;,     &quot;Region&quot; : &quot;Cook&quot;,     &quot;Region2&quot; : &quot;IL&quot;,     &quot;Country&quot; : &quot;US&quot;,     &quot;PostalCode&quot; : &quot;60606&quot;,     &quot;DateOfBirth&quot; : &quot;1967-06-24&quot;,     &quot;Ethnicity&quot; : &quot;1&quot;,     &quot;ProjectedTerminationDate&quot; : null,     &quot;LegalEntityId&quot; : 300000046974965,     &quot;HireDate&quot; : &quot;2004-09-30&quot;,     &quot;TerminationDate&quot; : null,     &quot;Gender&quot; : &quot;M&quot;,     &quot;MaritalStatus&quot; : &quot;M&quot;,     &quot;NationalIdType&quot; : &quot;SSN&quot;,     &quot;NationalId&quot; : &quot;454-32-1243&quot;,     &quot;NationalIdCountry&quot; : &quot;US&quot;,     &quot;NationalIdExpirationDate&quot; : null,     &quot;NationalIdPlaceOfIssue&quot; : null,     &quot;PersonId&quot; : 300000047341483,     &quot;EffectiveStartDate&quot; : &quot;2004-09-30&quot;,     &quot;UserName&quot; : &quot;CASEY.BROWN&quot;,     &quot;CitizenshipId&quot; : null,     &quot;CitizenshipStatus&quot; : null,     &quot;CitizenshipLegislationCode&quot; : null,     &quot;CitizenshipToDate&quot; : null,     &quot;Religion&quot; : null,     &quot;ReligionId&quot; : null,     &quot;PassportIssueDate&quot; : null,     &quot;PassportNumber&quot; : null,     &quot;PassportIssuingCountry&quot; : null,     &quot;PassportId&quot; : null,     &quot;PassportExpirationDate&quot; : null,     &quot;LicenseNumber&quot; : null,     &quot;DriversLicenseExpirationDate&quot; : null,     &quot;DriversLicenseIssuingCountry&quot; : &quot;US&quot;,     &quot;DriversLicenseId&quot; : 300000180084645,     &quot;MilitaryVetStatus&quot; : &quot;N&quot;,     &quot;CreationDate&quot; : &quot;2013-11-01T19:07:18+00:00&quot;,     &quot;LastUpdateDate&quot; : &quot;2013-11-01T19:11:51.458+00:00&quot;,     &quot;WorkerType&quot; : &quot;E&quot;   } ],   &quot;count&quot; : 1,   &quot;hasMore&quot; : false,   &quot;limit&quot; : 25,   &quot;offset&quot; : 0,   &quot;links&quot; : [ {     &quot;rel&quot; : &quot;self&quot;,     &quot;href&quot; : &quot;https://ekww.fa.us6.oraclecloud.com:443/hcmRestApi/resources/11.13.18.05/emps&quot;,     &quot;name&quot; : &quot;emps&quot;,     &quot;kind&quot; : &quot;collection&quot;   } ] }"/>
+      <property name="HttpVerb" value="GET"/>
+      <property name="ResponseElementName" value="response-wrapper"/>
+      <property name="enforceResponseSizeRestriction" value="true"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST"/>
+      <property name="generateConnectivityPropertiesOutboundRequest" value="RESTOUTREQ"/>
+      <property name="copyFaultFromModel" value="true"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="isResponseRawBytes" value="false"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails/types"/>
+      <property name="invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="restEndpointDescription" value="Get the person details via FA REST API"/>
+      <property name="QueryParameters" value="q, onlyData"/>
+      <property name="postQueryParamsAsContent" value="false"/>
+      <property name="connectionType" value="restapi"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST/types"/>
+      <property name="ResourceURI" value="/hcmRestApi/resources/latest/emps"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

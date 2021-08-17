@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates. 
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<ns0:ApplicationInstance xmlns:ns0="http://xmlns.oracle.com/adapters/cloud">
+  <id>a233a600-5b31-4d81-80f3-e6486f78d4de</id>
+  <instanceCode>OCI_FUNCTION</instanceCode>
+  <groupId>7a90c31e-722d-44ae-bbd3-d1997bd730bf</groupId>
+  <displayName>OCI Function</displayName>
+  <applicationTypeRef>rest</applicationTypeRef>
+  <description>This connection will be used to call an OCI function for the OIC to FA identity propagation use case.  The function will create the payload used for the IDCS REST API for the JWT Assertion Grant Type.</description>
+  <connectionProperties>
+    <connectionProperty>
+      <name>integration_role</name>
+      <value>TARGET</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>connectionType</name>
+      <value>restUrl</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>tlsVersion</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>connectionUrl</name>
+      <value>https://some.endpoint.example.com</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>enableTwoWaySSL</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>sslCertificateAlias</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>csfkey</name>
+      <value>9873cf9092fe7301c44610941d3678edaa08b804938b1f6e500647ac55d5cad7</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>csfMap</name>
+      <value>oracle.cloud.adapter</value>
+    </connectionProperty>
+  </connectionProperties>
+  <securityPolicy>OCI_SIGNATURE_VERSION1</securityPolicy>
+  <revision>01.00.0000</revision>
+  <status>CONFIGURED</status>
+  <hidden>false</hidden>
+  <percentageComplete>100</percentageComplete>
+  <attachments>
+    <attachment>
+      <propertyName>PrivateKey</propertyName>
+      <attachmentName>oci_api_key.pem</attachmentName>
+      <content>base64encodedprivatekeygoeshere=</content>
+      <signature>privatekeysignaturegoeshere=</signature>
+    </attachment>
+  </attachments>
+  <pluginVersion>19.4.3</pluginVersion>
+  <integrationRole>TARGET</integrationRole>
+  <securedAuditInfo>
+    <auditInfo>
+      <createdBy>some.email@example.com</createdBy>
+      <lastUpdatedBy>some.email@example.com</lastUpdatedBy>
+      <lastUpdatedDate>2021-01-20T20:45:18.518Z</lastUpdatedDate>
+      <createdDate>2021-01-20T20:45:18.518Z</createdDate>
+    </auditInfo>
+    <lockInfo>
+      <lockedBy>some.email@example.com</lockedBy>
+      <lockedDate>2021-01-20T21:07:43.015Z</lockedDate>
+    </lockInfo>
+  </securedAuditInfo>
+</ns0:ApplicationInstance>

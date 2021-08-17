@@ -1,0 +1,16 @@
+{
+  "referencedFunctionsWithTrackFlag": [],
+  "variablesReferenced": [
+    {
+      "wsdlURI": "file:/u01/data/domains/oic/servers/oic_server1/storage/ics/tmp/WC/itg_7765542480926904544/resources/processor_278/resourcegroup_279/ICSFault.xsd",
+      "rootElement": "{http://www.oracle.com/2014/03/ics/fault}fault",
+      "variableName": "JWTAssertionScopeFaultObject"
+    }
+  ],
+  "referencedLookupData": [],
+  "warningMsgs": [],
+  "errorMsgs": [],
+  "warningCount": 0,
+  "errorCount": 0,
+  "version": 2
+}

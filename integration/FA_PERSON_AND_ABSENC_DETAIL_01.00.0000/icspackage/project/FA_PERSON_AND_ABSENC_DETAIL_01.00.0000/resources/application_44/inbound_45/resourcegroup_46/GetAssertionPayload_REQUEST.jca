@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<adapter-config xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata" xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types" name="GetAssertionPayload_REQUESTPortType" adapter="rest" wsdlLocation="GetAssertionPayload_REQUEST.wsdl">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="securityPolicy" value="OCI_SIGNATURE_VERSION1"/>
+      <property name="cloud.adapter.sdk.version" value="20.4.3"/>
+      <property name="csfkey" value="9873cf9092fe7301c44610941d3678edaa08b804938b1f6e500647ac55d5cad7"/>
+      <property name="csfMap" value="oracle.cloud.adapter"/>
+      <property name="cloud.adapter.plugin.version" value="20.4.3"/>
+      <property name="connectionUrl" value="%%OCI_FUNCTION_connectionUrl"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="GetAssertionPayload_REQUESTPortType" operation="execute">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="execute"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="responseJsonTopLevelArray" value="false"/>
+      <property name="interactionSpecClass" value="oracle.tip.adapter.cloud.CloudInteractionSpec"/>
+      <property name="generateConnectivityPropertiesOutboundResponse" value="RESTOUTRES"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="ResponseMediaType" value="application/json"/>
+      <property name="ResponseSample" value="{   &quot;assertion&quot; : &quot;idcs.formatted.payload.from.function&quot; }"/>
+      <property name="HttpVerb" value="POST"/>
+      <property name="ResponseElementName" value="response-wrapper"/>
+      <property name="RequestMediaType" value="application/json"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST"/>
+      <property name="generateConnectivityPropertiesOutboundRequest" value="RESTOUTREQ"/>
+      <property name="isRequestRawBytes" value="false"/>
+      <property name="copyFaultFromModel" value="true"/>
+      <property name="requestJsonTopLevelArray" value="false"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="RequestElementName" value="request-wrapper"/>
+      <property name="RequestSample" value="{   &quot;principal&quot; : &quot;some.email@example.com&quot;,   &quot;scopes&quot; : [ &quot;urn:opc:resource:fa:instanceid=616273000urn:opc:resource:consumer::all&quot; ] }"/>
+      <property name="isResponseRawBytes" value="false"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types"/>
+      <property name="invocationStyle" value="REQUEST_RESPONSE"/>
+      <property name="operations" value="default"/>
+      <property name="forceWsdlTypesBuild" value="true"/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload/types"/>
+      <property name="postQueryParamsAsContent" value="false"/>
+      <property name="connectionType" value="restapi"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types"/>
+      <property name="ResourceURI" value="/actions/invoke"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

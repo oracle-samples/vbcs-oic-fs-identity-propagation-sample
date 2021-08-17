@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates.  
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<ns1:icsproject xmlns="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns1="http://www.oracle.com/2014/03/ics/project" xmlns:ns0="http://www.oracle.com/2014/03/ics/project/definition" name="project_1" version="8.1" cversion="5" modelType="freeform">
+  <ns0:projectCode>FA_PERSON_AND_ABSENC_DETAIL</ns0:projectCode>
+  <ns0:projectVersion>01.00.0000</ns0:projectVersion>
+  <ns0:projectName>FA Person and Absence Details</ns0:projectName>
+  <ns0:projectDescription>This integration demonstrates how to leverage IDCS JWT Assertion Grant Type for identity propagation from OIC to Fusion Applications REST APIs</ns0:projectDescription>
+  <ns0:percentComplete>100</ns0:percentComplete>
+  <ns0:projectHasErrors>false</ns0:projectHasErrors>
+  <ns0:projectHasWarnings>false</ns0:projectHasWarnings>
+  <ns1:icsflow name="flow_1">
+    <application name="application_18">
+      <role>source</role>
+      <adapter>
+        <type>app-adapter</type>
+        <code>GENERIC_REST_TRIGGER</code>
+        <name>GetFAPersonAndAbsenceDetails</name>
+        <description>This integration will retrieve person and absence details via Fusion Applications REST APIs. The identity for the caller will be used for the FA REST API calls.</description>
+        <property name="hasAttachment" value="false"/>
+      </adapter>
+      <mep>push-sync</mep>
+      <outbound name="outbound_19">
+        <binding>rest</binding>
+        <operation>execute</operation>
+        <resourceGroup name="resourcegroup_20">
+          <resource name="resource_21" location="../resources/application_18/outbound_19/resourcegroup_20/GetFAPersonAndAbsenceDetails_REQUEST.jca" type="jca"/>
+          <resource name="resource_22" location="../resources/application_18/outbound_19/resourcegroup_20/GetFAPersonAndAbsenceDetails_REQUEST.wsdl" type="wsdl"/>
+        </resourceGroup>
+        <input name="input_24">
+          <role>response</role>
+          <messageContextRef refUri="messagecontext_23"/>
+        </input>
+        <input name="input_28">
+          <role>fault</role>
+          <subRole>APIInvocationError</subRole>
+          <messageContextRef refUri="messagecontext_27"/>
+        </input>
+        <output name="output_26">
+          <role>request</role>
+          <messageContextRef refUri="messagecontext_25"/>
+        </output>
+      </outbound>
+    </application>
+    <application name="application_44">
+      <role>target</role>
+      <adapter>
+        <type>app-adapter</type>
+        <code>OCI_FUNCTION</code>
+        <name>GetAssertionPayload</name>
+        <description>Call the OCI function that will create the assertion payload using the ID from the client that triggered this integration.</description>
+        <property name="hasAttachment" value="false"/>
+      </adapter>
+      <mep>push-sync</mep>
+      <inbound name="inbound_45">
+        <binding>rest</binding>
+        <operation>execute</operation>
+        <resourceGroup name="resourcegroup_46">
+          <resource name="resource_49" location="../resources/application_44/inbound_45/resourcegroup_46/GetAssertionPayload_REQUEST.wsdl" type="wsdl"/>
+          <resource name="resource_324" location="../resources/application_44/inbound_45/resourcegroup_46/GetAssertionPayload_REQUEST.jca" type="jca"/>
+          <resource name="resource_325" location="../resources/application_44/inbound_45/resourcegroup_46/ICSFault.xsd" type="xsd"/>
+        </resourceGroup>
+        <input name="input_51">
+          <role>request</role>
+          <messageContextRef refUri="messagecontext_50"/>
+        </input>
+        <output name="output_53">
+          <role>response</role>
+          <messageContextRef refUri="messagecontext_52"/>
+        </output>
+        <output name="output_55">
+          <role>fault</role>
+          <subRole>APIInvocationError</subRole>
+          <messageContextRef refUri="messagecontext_54"/>
+        </output>
+      </inbound>
+    </application>
+    <application name="application_66">
+      <role>target</role>
+      <adapter>
+        <type>app-adapter</type>
+        <code>FA_IDCS</code>
+        <name>GetUserAssertionJWT</name>
+        <description>Get the user assertion JWT from the FA IDCS instance.</description>
+        <property name="hasAttachment" value="false"/>
+      </adapter>
+      <mep>push-sync</mep>
+      <inbound name="inbound_67">
+        <binding>rest</binding>
+        <operation>execute</operation>
+        <resourceGroup name="resourcegroup_68">
+          <resource name="resource_71" location="../resources/application_66/inbound_67/resourcegroup_68/GetUserAssertionJWT_REQUEST.wsdl" type="wsdl"/>
+          <resource name="resource_326" location="../resources/application_66/inbound_67/resourcegroup_68/GetUserAssertionJWT_REQUEST.jca" type="jca"/>
+          <resource name="resource_327" location="../resources/application_66/inbound_67/resourcegroup_68/ICSFault.xsd" type="xsd"/>
+        </resourceGroup>
+        <input name="input_73">
+          <role>request</role>
+          <messageContextRef refUri="messagecontext_72"/>
+        </input>
+        <output name="output_75">
+          <role>response</role>
+          <messageContextRef refUri="messagecontext_74"/>
+        </output>
+        <output name="output_77">
+          <role>fault</role>
+          <subRole>APIInvocationError</subRole>
+          <messageContextRef refUri="messagecontext_76"/>
+        </output>
+      </inbound>
+    </application>
+    <application name="application_83">
+      <role>target</role>
+      <adapter>
+        <type>app-adapter</type>
+        <code>FA_REST</code>
+        <name>GetFAPersonDetails</name>
+        <description>Get the person details via FA REST API</description>
+        <property name="hasAttachment" value="false"/>
+      </adapter>
+      <mep>push-sync</mep>
+      <inbound name="inbound_84">
+        <binding>rest</binding>
+        <operation>execute</operation>
+        <resourceGroup name="resourcegroup_85">
+          <resource name="resource_86" location="../resources/application_83/inbound_84/resourcegroup_85/GetFAPersonDetails_REQUEST.jca" type="jca"/>
+          <resource name="resource_87" location="../resources/application_83/inbound_84/resourcegroup_85/ICSFault.xsd" type="xsd"/>
+          <resource name="resource_88" location="../resources/application_83/inbound_84/resourcegroup_85/GetFAPersonDetails_REQUEST.wsdl" type="wsdl"/>
+        </resourceGroup>
+        <input name="input_90">
+          <role>request</role>
+          <messageContextRef refUri="messagecontext_89"/>
+        </input>
+        <output name="output_92">
+          <role>response</role>
+          <messageContextRef refUri="messagecontext_91"/>
+        </output>
+        <output name="output_94">
+          <role>fault</role>
+          <subRole>APIInvocationError</subRole>
+          <messageContextRef refUri="messagecontext_93"/>
+        </output>
+      </inbound>
+    </application>
+    <application name="application_135">
+      <role>target</role>
+      <adapter>
+        <type>app-adapter</type>
+        <code>FA_REST</code>
+        <name>GetFAPersonAbsences</name>
+        <description>Get the person absence details via FA REST API</description>
+        <property name="hasAttachment" value="false"/>
+      </adapter>
+      <mep>push-sync</mep>
+      <inbound name="inbound_136">
+        <binding>rest</binding>
+        <operation>execute</operation>
+        <resourceGroup name="resourcegroup_137">
+          <resource name="resource_138" location="../resources/application_135/inbound_136/resourcegroup_137/GetFAPersonAbsences_REQUEST.jca" type="jca"/>
+          <resource name="resource_139" location="../resources/application_135/inbound_136/resourcegroup_137/ICSFault.xsd" type="xsd"/>
+          <resource name="resource_140" location="../resources/application_135/inbound_136/resourcegroup_137/GetFAPersonAbsences_REQUEST.wsdl" type="wsdl"/>
+        </resourceGroup>
+        <input name="input_142">
+          <role>request</role>
+          <messageContextRef refUri="messagecontext_141"/>
+        </input>
+        <output name="output_144">
+          <role>response</role>
+          <messageContextRef refUri="messagecontext_143"/>
+        </output>
+        <output name="output_146">
+          <role>fault</role>
+          <subRole>APIInvocationError</subRole>
+          <messageContextRef refUri="messagecontext_145"/>
+        </output>
+      </inbound>
+    </application>
+    <processor name="processor_11">
+      <type>messageTracker</type>
+      <role>messageTracker:global</role>
+      <trackingVariableGroup>
+        <trackingVariable>
+          <role>tracking_var_1</role>
+          <primary>true</primary>
+          <name>Identity</name>
+          <xpath>/execute/request-wrapper/workEmail</xpath>
+          <messageContextRef refUri="messagecontext_25"/>
+          <output name="output_13">
+            <messageContextRef refUri="messagecontext_12"/>
+          </output>
+        </trackingVariable>
+        <trackingVariable>
+          <role>tracking_var_2</role>
+          <primary>false</primary>
+          <name>tracking_var_2</name>
+          <xpath/>
+          <messageContextRef refUri="messagecontext_25"/>
+          <output name="output_15">
+            <messageContextRef refUri="messagecontext_14"/>
+          </output>
+        </trackingVariable>
+        <trackingVariable>
+          <role>tracking_var_3</role>
+          <primary>false</primary>
+          <name>tracking_var_3</name>
+          <xpath/>
+          <messageContextRef refUri="messagecontext_25"/>
+          <output name="output_17">
+            <messageContextRef refUri="messagecontext_16"/>
+          </output>
+        </trackingVariable>
+      </trackingVariableGroup>
+    </processor>
+    <processor name="processor_56">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_59">
+        <resource name="resource_60" location="../resources/processor_56/resourcegroup_59/req_fff5b7452540435a8e4bde93f824e318.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_198">
+        <role>secondary-source</role>
+        <subRole>self</subRole>
+      </resourceRef>
+      <input name="input_57">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_58">
+        <messageContextRef refUri="messagecontext_50"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+      <property name="dependent-dvms" value="IdentityPropagationEndpoints"/>
+    </processor>
+    <processor name="processor_78">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_81">
+        <resource name="resource_82" location="../resources/processor_78/resourcegroup_81/req_e353ac14e7504290abd806584cf9aa70.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_52">
+        <role>secondary-source</role>
+        <subRole>GetAssertionPayload</subRole>
+      </resourceRef>
+      <input name="input_79">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_80">
+        <messageContextRef refUri="messagecontext_72"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+      <property name="dependent-dvms" value="IdentityPropagationEndpoints"/>
+    </processor>
+    <processor name="processor_95">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_98">
+        <resource name="resource_99" location="../resources/processor_95/resourcegroup_98/req_282878dda1a44d1dbd54eeaf70b82d52.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_103">
+        <role>secondary-source</role>
+        <subRole>bearer_token</subRole>
+      </resourceRef>
+      <input name="input_96">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_97">
+        <messageContextRef refUri="messagecontext_89"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+      <property name="dependent-dvms" value="IdentityPropagationEndpoints"/>
+    </processor>
+    <processor name="processor_100">
+      <type>assignment</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_113">
+        <resource name="resource_114" location="../resources/processor_100/resourcegroup_113/expr.properties" type="properties"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_25">
+        <role>primary-source</role>
+      </resourceRef>
+      <output name="output_104">
+        <messageContextRef refUri="messagecontext_103"/>
+      </output>
+    </processor>
+    <processor name="processor_115">
+      <type>assignment</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_328">
+        <resource name="resource_329" location="../resources/processor_115/resourcegroup_328/expr.properties" type="properties"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_25">
+        <role>primary-source</role>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_74">
+        <role>secondary-source</role>
+        <subRole>GetUserAssertionJWT</subRole>
+      </resourceRef>
+      <output name="output_124">
+        <messageContextRef refUri="messagecontext_103"/>
+      </output>
+    </processor>
+    <processor name="processor_147">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_150">
+        <resource name="resource_151" location="../resources/processor_147/resourcegroup_150/req_5b9de77098e843fd9ff41562159eb0aa.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_91">
+        <role>secondary-source</role>
+        <subRole>GetFAPersonDetails</subRole>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_103">
+        <role>secondary-source</role>
+        <subRole>bearer_token</subRole>
+      </resourceRef>
+      <input name="input_148">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_149">
+        <messageContextRef refUri="messagecontext_141"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+      <property name="dependent-dvms" value="IdentityPropagationEndpoints"/>
+    </processor>
+    <processor name="processor_159">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_162">
+        <resource name="resource_163" location="../resources/processor_159/resourcegroup_162/req_c2866d5a4cf2452c96756706c35c6ddf.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_91">
+        <role>secondary-source</role>
+        <subRole>GetFAPersonDetails</subRole>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_143">
+        <role>secondary-source</role>
+        <subRole>GetFAPersonAbsences</subRole>
+      </resourceRef>
+      <input name="input_160">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_161">
+        <messageContextRef refUri="messagecontext_23"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+    </processor>
+    <processor name="processor_195">
+      <type>integrationMetadata</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_196">
+        <resource name="resource_197" location="../resources/processor_195/resourcegroup_196/ICSIntegrationMetadata.xsd" type="xsd"/>
+      </resourceGroup>
+      <output name="output_199">
+        <messageContextRef refUri="messagecontext_198"/>
+      </output>
+    </processor>
+    <processor name="processor_200">
+      <type>catchAll</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_201">
+        <resource name="resource_202" location="../resources/processor_200/resourcegroup_201/ICSFault.xsd" type="xsd"/>
+      </resourceGroup>
+      <output name="output_204">
+        <messageContextRef refUri="messagecontext_203"/>
+      </output>
+    </processor>
+    <processor name="processor_205">
+      <type>contentBasedRouter</type>
+      <role>router:request-post-es</role>
+      <resourceRef refUri="messagecontext_241">
+        <role>secondary-source</role>
+        <subRole>errorCode</subRole>
+      </resourceRef>
+      <input name="input_206">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_207">
+        <messageContextRef refUri="messagecontext_25"/>
+        <resourceGroup name="resourcegroup_257">
+          <resource name="resource_258" location="../resources/processor_205/output_207/resourcegroup_257/expr.properties" type="properties"/>
+        </resourceGroup>
+      </output>
+      <output name="output_212">
+        <messageContextRef refUri="messagecontext_25"/>
+        <resourceGroup name="resourcegroup_213">
+          <resource name="resource_214" location="../resources/processor_205/output_212/resourcegroup_213/expr.properties" type="properties"/>
+        </resourceGroup>
+      </output>
+    </processor>
+    <processor name="processor_221">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_224">
+        <resource name="resource_225" location="../resources/processor_221/resourcegroup_224/req_36643e885083405db504998fd7302294.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_241">
+        <role>secondary-source</role>
+        <subRole>errorCode</subRole>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_262">
+        <role>secondary-source</role>
+        <subRole>errorDetail</subRole>
+      </resourceRef>
+      <input name="input_222">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_223">
+        <messageContextRef refUri="messagecontext_27"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+    </processor>
+    <processor name="processor_238">
+      <type>assignment</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_251">
+        <resource name="resource_252" location="../resources/processor_238/resourcegroup_251/expr.properties" type="properties"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_25">
+        <role>primary-source</role>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_203">
+        <role>secondary-source</role>
+        <subRole>FusionAppsRESTScopeFaultObject</subRole>
+      </resourceRef>
+      <output name="output_242">
+        <messageContextRef refUri="messagecontext_241"/>
+      </output>
+    </processor>
+    <processor name="processor_259">
+      <type>assignment</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_276">
+        <resource name="resource_277" location="../resources/processor_259/resourcegroup_276/expr.properties" type="properties"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_25">
+        <role>primary-source</role>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_203">
+        <role>secondary-source</role>
+        <subRole>FusionAppsRESTScopeFaultObject</subRole>
+      </resourceRef>
+      <output name="output_263">
+        <messageContextRef refUri="messagecontext_262"/>
+      </output>
+    </processor>
+    <processor name="processor_278">
+      <type>catchAll</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_279">
+        <resource name="resource_280" location="../resources/processor_278/resourcegroup_279/ICSFault.xsd" type="xsd"/>
+      </resourceGroup>
+      <output name="output_282">
+        <messageContextRef refUri="messagecontext_281"/>
+      </output>
+    </processor>
+    <processor name="processor_283">
+      <type>assignment</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_297">
+        <resource name="resource_298" location="../resources/processor_283/resourcegroup_297/expr.properties" type="properties"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_25">
+        <role>primary-source</role>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_281">
+        <role>secondary-source</role>
+        <subRole>JWTAssertionScopeFaultObject</subRole>
+      </resourceRef>
+      <output name="output_292">
+        <messageContextRef refUri="messagecontext_241"/>
+      </output>
+    </processor>
+    <processor name="processor_299">
+      <type>assignment</type>
+      <role>undefined</role>
+      <resourceGroup name="resourcegroup_322">
+        <resource name="resource_323" location="../resources/processor_299/resourcegroup_322/expr.properties" type="properties"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_25">
+        <role>primary-source</role>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_281">
+        <role>secondary-source</role>
+        <subRole>JWTAssertionScopeFaultObject</subRole>
+      </resourceRef>
+      <output name="output_308">
+        <messageContextRef refUri="messagecontext_262"/>
+      </output>
+    </processor>
+    <processor name="processor_315">
+      <type>transformer</type>
+      <role>transformer:response-map</role>
+      <resourceGroup name="resourcegroup_318">
+        <resource name="resource_319" location="../resources/processor_315/resourcegroup_318/req_a98bea3026f24a53911312de85f2b5af.xsl" type="xslt"/>
+      </resourceGroup>
+      <resourceRef refUri="messagecontext_241">
+        <role>secondary-source</role>
+        <subRole>errorCode</subRole>
+      </resourceRef>
+      <resourceRef refUri="messagecontext_262">
+        <role>secondary-source</role>
+        <subRole>errorDetail</subRole>
+      </resourceRef>
+      <input name="input_316">
+        <messageContextRef refUri="messagecontext_25"/>
+      </input>
+      <output name="output_317">
+        <messageContextRef refUri="messagecontext_27"/>
+      </output>
+      <property name="has-mappings" value="true"/>
+    </processor>
+    <messageContext name="messagecontext_12">
+      <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+    </messageContext>
+    <messageContext name="messagecontext_14">
+      <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+    </messageContext>
+    <messageContext name="messagecontext_16">
+      <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+    </messageContext>
+    <messageContext name="messagecontext_23">
+      <resourceRef refUri="application_18/outbound_19/resourcegroup_20/resource_22"/>
+      <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types"/>
+      <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_25">
+      <resourceRef refUri="application_18/outbound_19/resourcegroup_20/resource_22"/>
+      <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST/types"/>
+      <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_27">
+      <resourceRef refUri="application_18/outbound_19/resourcegroup_20/resource_22"/>
+      <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAndAbsenceDetails"/>
+      <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST" partName="parameters"/>
+      <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAndAbsenceDetails_REQUEST"/>
+    </messageContext>
+    <messageContext name="messagecontext_50">
+      <resourceRef refUri="application_44/inbound_45/resourcegroup_46/resource_49"/>
+      <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types"/>
+      <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_52">
+      <resourceRef refUri="application_44/inbound_45/resourcegroup_46/resource_49"/>
+      <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST/types"/>
+      <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_54">
+      <resourceRef refUri="application_44/inbound_45/resourcegroup_46/resource_49"/>
+      <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetAssertionPayload"/>
+      <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST" partName="parameters"/>
+      <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetAssertionPayload_REQUEST"/>
+    </messageContext>
+    <messageContext name="messagecontext_72">
+      <resourceRef refUri="application_66/inbound_67/resourcegroup_68/resource_71"/>
+      <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST/types"/>
+      <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_74">
+      <resourceRef refUri="application_66/inbound_67/resourcegroup_68/resource_71"/>
+      <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST/types"/>
+      <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_76">
+      <resourceRef refUri="application_66/inbound_67/resourcegroup_68/resource_71"/>
+      <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetUserAssertionJWT"/>
+      <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST" partName="parameters"/>
+      <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetUserAssertionJWT_REQUEST"/>
+    </messageContext>
+    <messageContext name="messagecontext_89">
+      <resourceRef refUri="application_83/inbound_84/resourcegroup_85/resource_88"/>
+      <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST/types"/>
+      <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_91">
+      <resourceRef refUri="application_83/inbound_84/resourcegroup_85/resource_88"/>
+      <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST/types"/>
+      <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_93">
+      <resourceRef refUri="application_83/inbound_84/resourcegroup_85/resource_88"/>
+      <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonDetails"/>
+      <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST" partName="parameters"/>
+      <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonDetails_REQUEST"/>
+    </messageContext>
+    <messageContext name="messagecontext_103">
+      <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+    </messageContext>
+    <messageContext name="messagecontext_141">
+      <resourceRef refUri="application_135/inbound_136/resourcegroup_137/resource_140"/>
+      <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/types"/>
+      <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_143">
+      <resourceRef refUri="application_135/inbound_136/resourcegroup_137/resource_140"/>
+      <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST/types"/>
+      <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST" partName="parameters"/>
+    </messageContext>
+    <messageContext name="messagecontext_145">
+      <resourceRef refUri="application_135/inbound_136/resourcegroup_137/resource_140"/>
+      <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/REST/GetFAPersonAbsences"/>
+      <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST" partName="parameters"/>
+      <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/REST/GetFAPersonAbsences_REQUEST"/>
+    </messageContext>
+    <messageContext name="messagecontext_198">
+      <resourceRef refUri="processor_195/resourcegroup_196/resource_197"/>
+      <rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+    </messageContext>
+    <messageContext name="messagecontext_203">
+      <resourceRef refUri="processor_200/resourcegroup_201/resource_202"/>
+      <rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+    </messageContext>
+    <messageContext name="messagecontext_241">
+      <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+    </messageContext>
+    <messageContext name="messagecontext_262">
+      <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+    </messageContext>
+    <messageContext name="messagecontext_281">
+      <resourceRef refUri="processor_278/resourcegroup_279/resource_280"/>
+      <rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+    </messageContext>
+    <commonNamespaceMaps/>
+    <orchestration>
+      <integrationMetadata id="im0" refUri="processor_195"/>
+      <receive id="r0" refUri="application_18/outbound_19/output_26" trackingRefUri="processor_11"/>
+      <label id="l0" name="SetupVariables" description="Setup the variables that will be used throughout the integration">
+        <assignment id="a0" refUri="processor_100"/>
+      </label>
+      <try id="t0" name="JWTAssertionScope" description="All the activities associated with creating the user assertion JWT are within this scope">
+        <transformer id="m1" refUri="processor_56"/>
+        <invoke id="i0" refUri="application_44"/>
+        <transformer id="m2" refUri="processor_78"/>
+        <invoke id="i1" refUri="application_66"/>
+        <label id="l1" name="SaveAssertionJWT" description="Assign the Assertion JWT to the global OIC variable">
+          <assignment id="a1" refUri="processor_115"/>
+        </label>
+        <catchAll id="ta1" refUri="processor_278">
+          <label id="l3" name="JWTAssertionFaultDetails" description="Get the details from the fault thrown during JWT Assertion processing">
+            <assignment id="a4" refUri="processor_283"/>
+            <assignment id="a5" refUri="processor_299"/>
+          </label>
+          <transformer id="m6" refUri="processor_315"/>
+          <reply id="y2" refUri="application_18/outbound_19/input_28"/>
+        </catchAll>
+      </try>
+      <try id="t1" name="FusionAppsRESTScope" description="This scope contains all the activities associated with FA REST API calls used to assemble the integration response payload">
+        <transformer id="m3" refUri="processor_95"/>
+        <invoke id="i2" refUri="application_83"/>
+        <transformer id="m4" refUri="processor_147"/>
+        <invoke id="i3" refUri="application_135"/>
+        <transformer id="m5" refUri="processor_159"/>
+        <catchAll id="ta0" refUri="processor_200">
+          <label id="l2" name="FaultDetails" description="Get the fault details">
+            <assignment id="a2" refUri="processor_238"/>
+            <assignment id="a3" refUri="processor_259"/>
+          </label>
+          <router id="s0" refUri="processor_205">
+            <route id="sc0" refUri="processor_205/output_207">
+              <transformer id="m0" refUri="processor_221"/>
+              <reply id="y1" refUri="application_18/outbound_19/input_28"/>
+            </route>
+            <route id="sc1" refUri="processor_205/output_212">
+              <ehStop id="eh0"/>
+            </route>
+          </router>
+        </catchAll>
+      </try>
+      <reply id="y0" refUri="application_18/outbound_19/input_24"/>
+    </orchestration>
+  </ns1:icsflow>
+</ns1:icsproject>

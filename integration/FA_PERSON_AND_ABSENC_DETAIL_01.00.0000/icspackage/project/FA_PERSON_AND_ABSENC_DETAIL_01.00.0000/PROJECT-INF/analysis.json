@@ -1,0 +1,362 @@
+{
+  "id": "FA_PERSON_AND_ABSENC_DETAIL_01.00.0000",
+  "icsProject": {
+    "version": "01.00.0000",
+    "percentageComplete": 100,
+    "modelType": "FREEFORM",
+    "projectCode": "FA_PERSON_AND_ABSENC_DETAIL",
+    "processorCount": {
+      "MESSAGE_TRACKER": 1,
+      "TRANSFORMER": 7,
+      "ASSIGNMENT": 6,
+      "INTEGRATION_METADATA": 1,
+      "CATCH_ALL": 2,
+      "CONTENT_BASED_ROUTER": 1,
+      "SOURCE": 1,
+      "TARGET": 4
+    },
+    "projectStyle": "App Driven Orchestration",
+    "smartTags": "app:rest, app:REST,style:App Driven Orchestration",
+    "orchestration": {
+      "type": "ORCHESTRATION",
+      "activities": [
+        {
+          "type": "RECEIVE",
+          "normalizedFields": {
+            "adapterType": "TECHNOLOGY",
+            "adapterName": "REST",
+            "adapterPluginID": "rest",
+            "endpointConfigurationSummary": "Trigger OIC REST Integration: Post /getPersonAbsenceDetails/",
+            "adapterEndpointConfiguration": "INBOUND",
+            "integrationOperationName": "Post",
+            "outboundInvocationOperationName": "no_data",
+            "outboundInvocationService": "no_data",
+            "outboundInvocationProtocol": "no_data",
+            "outboundInvocationConnectivityMode": "no_data",
+            "outboundInvocationAuthenticationType": "no_data",
+            "outboundInvocationTLS": "no_data",
+            "outboundInvocationOAuthProvider": "no_data",
+            "outboundInvocationInvocationStyle": "no_data",
+            "outboundInvocationFunctionalPattern": "no_data",
+            "outboundInvocationArtifactType": "no_data",
+            "outboundInvocationArtifactValue": "no_data",
+            "outboundInvocationAttachmentSupport": "no_data",
+            "outboundInvocationPaginatedRetrieval": "no_data",
+            "outboundInvocationCustomArtifact": "no_data",
+            "inboundInvocationInvocationStyle": "SYNC_REQUEST_RESPONSE",
+            "inboundInvocationFunctionalPattern": "TRIGGER",
+            "inboundInvocationProtocol": "REST",
+            "inboundInvocationTLS": "1_WAY_SSL",
+            "inboundInvocationAuthenticationType": "USERNAME_PASSWORD_TOKEN",
+            "inboundInvocationConnectivityMode": "CLOUD",
+            "inboundInvocationArtifactType": "JSON",
+            "inboundInvocationArtifactValue": "/getPersonAbsenceDetails/",
+            "inboundInvocationAttachmentSupport": "no_data",
+            "inboundInvocationCustomArtifact": "no_data"
+          }
+        },
+        {
+          "type": "LABEL",
+          "assignments": [
+            {
+              "type": "ASSIGNMENT",
+              "xpathExpression": "\"\""
+            }
+          ]
+        },
+        {
+          "type": "TRY",
+          "activities": [
+            {
+              "type": "TRANSFORMER",
+              "sources": [
+                "rest"
+              ],
+              "target": "REST",
+              "dependentDVMs": [
+                "IdentityPropagationEndpoints"
+              ]
+            },
+            {
+              "type": "INVOKE",
+              "normalizedFields": {
+                "adapterType": "TECHNOLOGY",
+                "adapterName": "REST",
+                "adapterPluginID": "rest",
+                "endpointConfigurationSummary": "Call External REST API: Post /XXXXXXXX/functions/ocid1.XXXXXXXX/",
+                "adapterEndpointConfiguration": "OUTBOUND",
+                "integrationOperationName": "no_data",
+                "outboundInvocationOperationName": "Post",
+                "outboundInvocationService": "External REST API",
+                "outboundInvocationProtocol": "REST",
+                "outboundInvocationConnectivityMode": "CLOUD",
+                "outboundInvocationAuthenticationType": "NO_SECURITY",
+                "outboundInvocationTLS": "1_WAY_SSL",
+                "outboundInvocationOAuthProvider": "no_data",
+                "outboundInvocationInvocationStyle": "no_data",
+                "outboundInvocationFunctionalPattern": "REAL_TIME",
+                "outboundInvocationArtifactType": "JSON",
+                "outboundInvocationArtifactValue": "/XXXXXXXX/functions/ocid1.XXXXXXXX/",
+                "outboundInvocationAttachmentSupport": "no_data",
+                "outboundInvocationPaginatedRetrieval": "no_data",
+                "outboundInvocationCustomArtifact": "no_data",
+                "inboundInvocationInvocationStyle": "no_data",
+                "inboundInvocationFunctionalPattern": "no_data",
+                "inboundInvocationProtocol": "no_data",
+                "inboundInvocationTLS": "no_data",
+                "inboundInvocationAuthenticationType": "no_data",
+                "inboundInvocationConnectivityMode": "no_data",
+                "inboundInvocationArtifactType": "no_data",
+                "inboundInvocationArtifactValue": "no_data",
+                "inboundInvocationAttachmentSupport": "no_data",
+                "inboundInvocationCustomArtifact": "no_data"
+              }
+            },
+            {
+              "type": "TRANSFORMER",
+              "sources": [
+                "rest",
+                "REST"
+              ],
+              "target": "REST",
+              "dependentDVMs": [
+                "IdentityPropagationEndpoints"
+              ]
+            },
+            {
+              "type": "INVOKE",
+              "normalizedFields": {
+                "adapterType": "TECHNOLOGY",
+                "adapterName": "REST",
+                "adapterPluginID": "rest",
+                "endpointConfigurationSummary": "Call External REST API: Post /oauth2/v1/token/",
+                "adapterEndpointConfiguration": "OUTBOUND",
+                "integrationOperationName": "no_data",
+                "outboundInvocationOperationName": "Post",
+                "outboundInvocationService": "External REST API",
+                "outboundInvocationProtocol": "REST",
+                "outboundInvocationConnectivityMode": "CLOUD",
+                "outboundInvocationAuthenticationType": "NO_SECURITY",
+                "outboundInvocationTLS": "1_WAY_SSL",
+                "outboundInvocationOAuthProvider": "no_data",
+                "outboundInvocationInvocationStyle": "no_data",
+                "outboundInvocationFunctionalPattern": "REAL_TIME",
+                "outboundInvocationArtifactType": "RAW",
+                "outboundInvocationArtifactValue": "/oauth2/v1/token/",
+                "outboundInvocationAttachmentSupport": "no_data",
+                "outboundInvocationPaginatedRetrieval": "no_data",
+                "outboundInvocationCustomArtifact": "no_data",
+                "inboundInvocationInvocationStyle": "no_data",
+                "inboundInvocationFunctionalPattern": "no_data",
+                "inboundInvocationProtocol": "no_data",
+                "inboundInvocationTLS": "no_data",
+                "inboundInvocationAuthenticationType": "no_data",
+                "inboundInvocationConnectivityMode": "no_data",
+                "inboundInvocationArtifactType": "no_data",
+                "inboundInvocationArtifactValue": "no_data",
+                "inboundInvocationAttachmentSupport": "no_data",
+                "inboundInvocationCustomArtifact": "no_data"
+              }
+            },
+            {
+              "type": "LABEL",
+              "assignments": [
+                {
+                  "type": "ASSIGNMENT",
+                  "xpathExpression": "concat (\"Bearer \", $GetUserAssertionJWT/nsmpr10:executeResponse/nsmpr4:response-wrapper/nsmpr4:access_token)"
+                }
+              ]
+            },
+            {
+              "type": "CATCH_ALL",
+              "activities": [
+                {
+                  "type": "LABEL",
+                  "assignments": [
+                    {
+                      "type": "ASSIGNMENT",
+                      "xpathExpression": "substring-before(substring-after($JWTAssertionScopeFaultObject/nsmpr7:fault/nsmpr7:details,'errorCode>'),'</')\n"
+                    },
+                    {
+                      "type": "ASSIGNMENT",
+                      "xpathExpression": "substring-before( substring-after($JWTAssertionScopeFaultObject/nsmpr7:fault/nsmpr7:details, '\"}.'), ' ]]>Fault Details :')\n"
+                    }
+                  ]
+                },
+                {
+                  "type": "TRANSFORMER",
+                  "sources": [
+                    "rest"
+                  ],
+                  "target": "rest"
+                },
+                {
+                  "type": "REPLY",
+                  "application": "rest"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TRY",
+          "activities": [
+            {
+              "type": "TRANSFORMER",
+              "sources": [
+                "rest"
+              ],
+              "target": "rest",
+              "dependentDVMs": [
+                "IdentityPropagationEndpoints"
+              ]
+            },
+            {
+              "type": "INVOKE",
+              "normalizedFields": {
+                "adapterType": "TECHNOLOGY",
+                "adapterName": "REST",
+                "adapterPluginID": "rest",
+                "endpointConfigurationSummary": "Call Oracle HCM REST API: Get /hcmRestApi/resources/latest/emps/",
+                "adapterEndpointConfiguration": "OUTBOUND",
+                "integrationOperationName": "restapi",
+                "outboundInvocationOperationName": "Get",
+                "outboundInvocationService": "Oracle HCM REST API",
+                "outboundInvocationProtocol": "REST",
+                "outboundInvocationConnectivityMode": "CLOUD",
+                "outboundInvocationAuthenticationType": "NO_SECURITY",
+                "outboundInvocationTLS": "1_WAY_SSL",
+                "outboundInvocationOAuthProvider": "no_data",
+                "outboundInvocationInvocationStyle": "no_data",
+                "outboundInvocationFunctionalPattern": "REAL_TIME",
+                "outboundInvocationArtifactType": "JSON",
+                "outboundInvocationArtifactValue": "/hcmRestApi/resources/latest/emps/",
+                "outboundInvocationAttachmentSupport": "no_data",
+                "outboundInvocationPaginatedRetrieval": "no_data",
+                "outboundInvocationCustomArtifact": "no_data",
+                "inboundInvocationInvocationStyle": "no_data",
+                "inboundInvocationFunctionalPattern": "no_data",
+                "inboundInvocationProtocol": "no_data",
+                "inboundInvocationTLS": "no_data",
+                "inboundInvocationAuthenticationType": "no_data",
+                "inboundInvocationConnectivityMode": "no_data",
+                "inboundInvocationArtifactType": "no_data",
+                "inboundInvocationArtifactValue": "no_data",
+                "inboundInvocationAttachmentSupport": "no_data",
+                "inboundInvocationCustomArtifact": "no_data"
+              }
+            },
+            {
+              "type": "TRANSFORMER",
+              "sources": [
+                "rest",
+                "rest"
+              ],
+              "target": "rest",
+              "dependentDVMs": [
+                "IdentityPropagationEndpoints"
+              ]
+            },
+            {
+              "type": "INVOKE",
+              "normalizedFields": {
+                "adapterType": "TECHNOLOGY",
+                "adapterName": "REST",
+                "adapterPluginID": "rest",
+                "endpointConfigurationSummary": "Call External REST API: Get /hcmAbsencesApi/resources/latest/absences/",
+                "adapterEndpointConfiguration": "OUTBOUND",
+                "integrationOperationName": "restapi",
+                "outboundInvocationOperationName": "Get",
+                "outboundInvocationService": "External REST API",
+                "outboundInvocationProtocol": "REST",
+                "outboundInvocationConnectivityMode": "CLOUD",
+                "outboundInvocationAuthenticationType": "NO_SECURITY",
+                "outboundInvocationTLS": "1_WAY_SSL",
+                "outboundInvocationOAuthProvider": "no_data",
+                "outboundInvocationInvocationStyle": "no_data",
+                "outboundInvocationFunctionalPattern": "REAL_TIME",
+                "outboundInvocationArtifactType": "JSON",
+                "outboundInvocationArtifactValue": "/hcmAbsencesApi/resources/latest/absences/",
+                "outboundInvocationAttachmentSupport": "no_data",
+                "outboundInvocationPaginatedRetrieval": "no_data",
+                "outboundInvocationCustomArtifact": "no_data",
+                "inboundInvocationInvocationStyle": "no_data",
+                "inboundInvocationFunctionalPattern": "no_data",
+                "inboundInvocationProtocol": "no_data",
+                "inboundInvocationTLS": "no_data",
+                "inboundInvocationAuthenticationType": "no_data",
+                "inboundInvocationConnectivityMode": "no_data",
+                "inboundInvocationArtifactType": "no_data",
+                "inboundInvocationArtifactValue": "no_data",
+                "inboundInvocationAttachmentSupport": "no_data",
+                "inboundInvocationCustomArtifact": "no_data"
+              }
+            },
+            {
+              "type": "TRANSFORMER",
+              "sources": [
+                "rest",
+                "rest",
+                "rest"
+              ],
+              "target": "rest"
+            },
+            {
+              "type": "CATCH_ALL",
+              "activities": [
+                {
+                  "type": "LABEL",
+                  "assignments": [
+                    {
+                      "type": "ASSIGNMENT",
+                      "xpathExpression": "substring-before(substring-after($FusionAppsRESTScopeFaultObject/nsmpr7:fault/nsmpr7:details,'errorCode>'),'</')"
+                    },
+                    {
+                      "type": "ASSIGNMENT",
+                      "xpathExpression": "substring-before( substring-after( $FusionAppsRESTScopeFaultObject/nsmpr7:fault/nsmpr7:details, \"instance>&lt;![CDATA[.\"), \"]]&gt;</\")"
+                    }
+                  ]
+                },
+                {
+                  "type": "ROUTER",
+                  "routes": [
+                    {
+                      "type": "ROUTER_ROUTE",
+                      "xpathExpression": "$errorCode != \"500\"",
+                      "activities": [
+                        {
+                          "type": "TRANSFORMER",
+                          "sources": [
+                            "rest"
+                          ],
+                          "target": "rest"
+                        },
+                        {
+                          "type": "REPLY",
+                          "application": "rest"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "ROUTER_ROUTE",
+                      "xpathExpression": "true",
+                      "activities": [
+                        {
+                          "type": "EHSTOP"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "REPLY",
+          "application": "rest"
+        }
+      ]
+    }
+  }
+}

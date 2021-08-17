@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021, Oracle and/or its affiliates. 
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+-->
+<ns0:ApplicationInstance xmlns:ns0="http://xmlns.oracle.com/adapters/cloud">
+  <id>dad45137-f1c0-46ef-9e8d-b657acee13b4</id>
+  <instanceCode>FA_REST</instanceCode>
+  <groupId>a982a3a9-c884-43c4-92e4-d4e1f828701c</groupId>
+  <displayName>FA REST</displayName>
+  <applicationTypeRef>rest</applicationTypeRef>
+  <description>This connection will be used to call the Fusion Applications REST API.</description>
+  <connectionProperties>
+    <connectionProperty>
+      <name>integration_role</name>
+      <value>SOURCE_AND_TARGET</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>connectionType</name>
+      <value>restUrl</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>tlsVersion</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>connectionUrl</name>
+      <value>https://some.endpoint.example.com</value>
+    </connectionProperty>
+    <connectionProperty>
+      <name>enableTwoWaySSL</name>
+    </connectionProperty>
+    <connectionProperty>
+      <name>sslCertificateAlias</name>
+    </connectionProperty>
+  </connectionProperties>
+  <securityPolicy>NONE</securityPolicy>
+  <revision>01.00.0000</revision>
+  <status>CONFIGURED</status>
+  <hidden>false</hidden>
+  <percentageComplete>100</percentageComplete>
+  <attachments/>
+  <pluginVersion>19.4.3</pluginVersion>
+  <integrationRole>SOURCE_AND_TARGET</integrationRole>
+  <securedAuditInfo>
+    <auditInfo>
+      <createdBy>some.email@example.com</createdBy>
+      <lastUpdatedBy>some.email@example.com</lastUpdatedBy>
+      <lastUpdatedDate>2021-01-21T16:15:15.262Z</lastUpdatedDate>
+      <createdDate>2021-01-21T16:15:15.262Z</createdDate>
+    </auditInfo>
+    <lockInfo>
+      <lockedBy>some.email@example.com</lockedBy>
+      <lockedDate>2021-01-21T16:15:33.784Z</lockedDate>
+    </lockInfo>
+  </securedAuditInfo>
+</ns0:ApplicationInstance>

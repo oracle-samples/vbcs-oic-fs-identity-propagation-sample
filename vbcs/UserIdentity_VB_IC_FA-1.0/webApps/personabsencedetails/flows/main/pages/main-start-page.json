@@ -1,0 +1,190 @@
+{
+  "pageModelVersion": "19.4.3",
+  "title": "",
+  "description": "",
+  "variables": {
+    "employeeInfoRequest": {
+      "type": "GetPersonAbsenceDetailsRequestType"
+    },
+    "employeeInfoDetails": {
+      "type": "GetPersonAbsenceDetailsDetails"
+    },
+    "postGetPersonAbsenceDetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "idAttribute": "personAbsenceEntryId",
+        "itemsPath": "items[0].abscences",
+        "responseType": "page:postGetPersonAbsenceDetailsResponse",
+        "fetchChainId": "postGetPersonAbsenceDetailsFetchAction"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.GetPersonAbsenceDetailsRequestType": {
+      "endpoint": "postGetPersonAbsenceDetails",
+      "service": "getPersonAndAbsenceDetails",
+      "path": "request"
+    },
+    "GetPersonAbsenceDetailsRequestType": {
+      "workEmail": "string"
+    },
+    "@decorators.GetPersonAbsenceDetailsDetails": {
+      "endpoint": "postGetPersonAbsenceDetails",
+      "service": "getPersonAndAbsenceDetails",
+      "path": "response"
+    },
+    "GetPersonAbsenceDetailsDetails": {
+      "items": [
+        {
+          "abscences": [
+            {
+              "approvalStatusCd": "string",
+              "createdBy": "string",
+              "creationDate": "string",
+              "endDate": "string",
+              "endTime": "string",
+              "personAbsenceEntryId": "number",
+              "startDate": "string",
+              "startTime": "string",
+              "submittedDate": "string"
+            }
+          ],
+          "FirstName": "string",
+          "HireDate": "string",
+          "LastName": "string",
+          "WorkPhoneAreaCode": "string",
+          "WorkPhoneNumber": "string"
+        }
+      ]
+    },
+    "postGetPersonAbsenceDetailsResponse": {
+      "items": [
+        {
+          "abscences": [
+            {
+              "approvalStatusCd": "string",
+              "createdBy": "string",
+              "creationDate": "string",
+              "endDate": "string",
+              "endTime": "string",
+              "personAbsenceEntryId": "number",
+              "startDate": "string",
+              "startTime": "string",
+              "submittedDate": "string"
+            }
+          ]
+        }
+      ]
+    },
+    "@decorators.postGetPersonAbsenceDetailsResponse": {
+      "endpoint": "postGetPersonAbsenceDetails",
+      "service": "getPersonAndAbsenceDetails",
+      "path": "response"
+    }
+  },
+  "chains": {
+    "ButtonActionChain": {
+      "description": "",
+      "variables": {
+        "detail": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "fireDataProviderEvent1",
+      "actions": {
+        "fireDataProviderEvent1": {
+          "module": "vb/action/builtin/fireDataProviderEventAction",
+          "parameters": {
+            "refresh": null,
+            "target": "[[ $page.variables.postGetPersonAbsenceDetailsListSDP ]]"
+          }
+        }
+      }
+    },
+    "postGetPersonAbsenceDetailsFetchAction": {
+      "root": "callRestEndpoint1",
+      "actions": {
+        "callRestEndpoint1": {
+          "module": "vb/action/builtin/restAction",
+          "parameters": {
+            "requestType": "json",
+            "endpoint": "getPersonAndAbsenceDetails/postGetPersonAbsenceDetails",
+            "responseType": "page:postGetPersonAbsenceDetailsResponse",
+            "hookHandler": "{{ $variables.configuration.hookHandler }}",
+            "body": "{{ $page.variables.employeeInfoRequest }}"
+          },
+          "outcomes": {
+            "success": "return1"
+          }
+        },
+        "return1": {
+          "module": "vb/action/builtin/returnAction",
+          "parameters": {
+            "outcome": "success",
+            "payload": "{{ $chain.results.callRestEndpoint1 }}"
+          }
+        }
+      },
+      "variables": {
+        "configuration": {
+          "type": {
+            "hookHandler": "vb/RestHookHandler"
+          },
+          "input": "fromCaller",
+          "required": true
+        }
+      }
+    }
+  },
+  "eventListeners": {
+    "ojButton3986564701OjAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    },
+    "ojInputText3986564701Value": {
+      "chains": [
+        {
+          "chainId": "InputTextValueChangeChain1",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "ojButtonOjAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      }
+    }
+  }
+}
