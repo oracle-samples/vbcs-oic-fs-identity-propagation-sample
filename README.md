@@ -51,7 +51,7 @@ NOTE: It is important to understand that the Solution Architecture above include
 - The OIC IDCS instance is Federated with FA, so the user is known throughout the technology stacks (VB, IC, and FA). This IDCS instance is not represented in the Solution Architecture diagram but provides identity management for all the OIC features (IC, VB, Processes, and Insight).
 - Since this pattern involves several sub-components, each of the sub-components contain their own README.md (see links in Installing and Running section).
 
-## Installing and Running
+## Installation
 
 To install and run this example, follow the steps below, each of which link to a set of detailed instructions for each step.
 
@@ -70,8 +70,9 @@ For more information on security please see [SECURITY.md](SECURITY.md)
 ## Help
 If you need help with this sample, please log an issue.
 
-Copyright (c) 2021, Oracle and/or its affiliates.  
-Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+## License
 
+Copyright (c) 2021 Oracle and/or its affiliates.
 
-
+Released under the Universal Permissive License v1.0 as shown at
+<https://oss.oracle.com/licenses/upl/>.
